@@ -2,15 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://berthoudwifi.com/</loc></url>
   <url><loc>https://berthoudwifi.com/about.html</loc></url>
-  <url><loc>https://berthoudwifi.com/services/wifi-installation.html</loc></url>
-  <url><loc>https://berthoudwifi.com/services/unifi-network-installation.html</loc></url>
-  <url><loc>https://berthoudwifi.com/services/outdoor-wifi.html</loc></url>
-  <url><loc>https://berthoudwifi.com/services/security-cameras.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/news/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/building-to-building-connectivity.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/fiber-structured-cabling.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/home-network-improvements.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/network-modernization.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/network-troubleshooting.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/outdoor-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/rural-property-connectivity.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/security-cameras.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/small-business-infrastructure.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/unifi-access-entry.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/unifi-network-installation.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/unifi-protect-security.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/wifi-installation.html</loc></url>
   <url><loc>https://berthoudwifi.com/cities/berthoud.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/loveland.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/boulder.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/erie.html</loc></url>
   <url><loc>https://berthoudwifi.com/cities/fort-collins.html</loc></url>
   <url><loc>https://berthoudwifi.com/cities/longmont.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/erie.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/boulder.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/loveland.html</loc></url>
+  <url><loc>https://berthoudwifi.com/news/why-wifi-extenders-fail-large-properties.html</loc></url>
+  <url><loc>https://berthoudwifi.com/news/when-small-business-should-upgrade-to-unifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/news/fiber-vs-wireless-bridge-outbuildings.html</loc></url>
 </urlset>
