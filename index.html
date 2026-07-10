@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<header class="site-header"><div class="container nav"><a class="brand" href="/"><img src="/assets/images/berthoud-wifi-logo.png" alt="Berthoud WiFi logo"><span>Berthoud WiFi</span></a><button class="menu-btn" aria-label="Open navigation">Menu</button><nav class="nav-links" aria-label="Primary"><a href="/services/index.html">Services</a><a href="/#areas">Service Areas</a><a href="/news/index.html">The Connected Front Range</a><a href="/about.html">About</a><a class="btn btn-primary" href="/#contact">Request a Quote</a></nav></div></header>
+<header class="site-header"><div class="container nav"><a class="brand" href="/"><img src="/assets/images/berthoud-wifi-logo.png" alt="Berthoud WiFi logo"><span>Berthoud WiFi</span></a><button class="menu-btn" aria-label="Open navigation">Menu</button><nav class="nav-links" aria-label="Primary"><a href="/services/index.html">Services</a><a href="/#areas">Service Areas</a><a href="/news/index.html">The Connected Front Range</a><a href="/about.html">About</a><a class="btn btn-primary" href="/contact.html">Request a Quote</a></nav></div></header>
 
 
 <main>
@@ -46,12 +46,12 @@
       <p class="lead">From a single access point to a complete managed network, every system is designed around coverage, stability, clean installation, and straightforward support.</p>
     </div>
     <div class="grid-3">
-      <article class="card"><div class="icon">Wi</div><h3>WiFi Installation</h3><p>Whole-home and business WiFi designed to eliminate dead zones and improve reliability.</p><a class="link-arrow" href="/services/wifi-installation.html">Learn more →</a></article>
-      <article class="card"><div class="icon">U</div><h3>UniFi Network Installation</h3><p>Gateways, switches, access points, VLANs, guest networks, and complete UniFi deployments.</p><a class="link-arrow" href="/services/unifi-network-installation.html">Learn more →</a></article>
-      <article class="card"><div class="icon">C</div><h3>Security Cameras</h3><p>UniFi Protect camera systems for homes, offices, shops, barns, and multi-building properties.</p><a class="link-arrow" href="/services/security-cameras.html">Learn more →</a></article>
-      <article class="card"><div class="icon">O</div><h3>Outdoor WiFi</h3><p>Connectivity for acreage, patios, shops, detached garages, barns, and outdoor work areas.</p><a class="link-arrow" href="/services/outdoor-wifi.html">Learn more →</a></article>
-      <article class="card"><div class="icon">T</div><h3>Network Troubleshooting</h3><p>Diagnosis and repair for slow WiFi, dropped connections, unstable mesh systems, and poor coverage.</p><a class="link-arrow" href="/services/network-troubleshooting.html">Learn more →</a></article>
-      <article class="card"><div class="icon">B</div><h3>Business Networks</h3><p>Reliable business WiFi, segmented networks, point-of-sale connectivity, and secure guest access.</p><a class="link-arrow" href="/services/unifi-network-installation.html">View solutions →</a></article>
+      <article class="card"><img class="icon-png" src="/assets/images/icons/home-network.png" alt=""><h3>WiFi Installation</h3><p>Whole-home and business WiFi designed to eliminate dead zones and improve reliability.</p><a class="link-arrow" href="/services/wifi-installation.html">Learn more →</a></article>
+      <article class="card"><img class="icon-png" src="/assets/images/icons/network-modernization.png" alt=""><h3>UniFi Network Installation</h3><p>Gateways, switches, access points, VLANs, guest networks, and complete UniFi deployments.</p><a class="link-arrow" href="/services/unifi-network-installation.html">Learn more →</a></article>
+      <article class="card"><img class="icon-png" src="/assets/images/icons/protect-security.png" alt=""><h3>Security Cameras</h3><p>UniFi Protect camera systems for homes, offices, shops, barns, and multi-building properties.</p><a class="link-arrow" href="/services/security-cameras.html">Learn more →</a></article>
+      <article class="card"><img class="icon-png" src="/assets/images/icons/outdoor-wifi.png" alt=""><h3>Outdoor WiFi</h3><p>Connectivity for acreage, patios, shops, detached garages, barns, and outdoor work areas.</p><a class="link-arrow" href="/services/outdoor-wifi.html">Learn more →</a></article>
+      <article class="card"><img class="icon-png" src="/assets/images/icons/troubleshooting.png" alt=""><h3>Network Troubleshooting</h3><p>Diagnosis and repair for slow WiFi, dropped connections, unstable mesh systems, and poor coverage.</p><a class="link-arrow" href="/services/network-troubleshooting.html">Learn more →</a></article>
+      <article class="card"><img class="icon-png" src="/assets/images/icons/small-business.png" alt=""><h3>Business Networks</h3><p>Reliable business WiFi, segmented networks, point-of-sale connectivity, and secure guest access.</p><a class="link-arrow" href="/services/unifi-network-installation.html">View solutions →</a></article>
     </div>
   </div>
 </section>
@@ -112,17 +112,97 @@
   </div>
 </section>
 
+
 <section class="section" id="contact">
-  <div class="container cta">
-    <div><span class="eyebrow">Start with the problem</span><h2>Tell us where your WiFi is failing.</h2><p class="lead">Share your location, property type, and the issue you are trying to solve.</p></div>
-    <a class="btn btn-primary" href="mailto:hello@berthoudwifi.com?subject=Berthoud%20WiFi%20Quote%20Request">Email Berthoud WiFi</a>
+  <div class="container contact-layout">
+    <div>
+      <span class="eyebrow">Request a Quote</span>
+      <h2>Tell us where the connection is failing.</h2>
+      <p class="lead">Share your location, property type, and the result you need. The form securely sends your request through Resend.</p>
+      <ul class="checklist">
+        <li>Home and business WiFi</li>
+        <li>UniFi cameras and access</li>
+        <li>Fiber, cabling, and building bridges</li>
+        <li>Rural and outdoor connectivity</li>
+      </ul>
+    </div>
+    
+<form class="contact-form card" data-contact-form novalidate>
+  <div class="honeypot" aria-hidden="true">
+    <label for="company_website">Company website</label>
+    <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  <div class="form-field">
+    <label for="name">Name *</label>
+    <input id="name" name="name" type="text" autocomplete="name" required>
+  </div>
+  <div class="form-field">
+    <label for="email">Email *</label>
+    <input id="email" name="email" type="email" autocomplete="email" required>
+  </div>
+  <div class="form-field">
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel">
+  </div>
+  <div class="form-field">
+    <label for="city">City</label>
+    <select id="city" name="city">
+      <option value="">Select your area</option>
+      <option>Berthoud</option>
+      <option>Loveland</option>
+      <option>Fort Collins</option>
+      <option>Longmont</option>
+      <option>Erie</option>
+      <option>Boulder</option>
+      <option>Other Northern Colorado area</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="property_type">Property type</label>
+    <select id="property_type" name="property_type">
+      <option value="">Select one</option>
+      <option>Home</option>
+      <option>Small business</option>
+      <option>Office or commercial property</option>
+      <option>Rural property or acreage</option>
+      <option>Barn, shop, or outbuilding</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="service">Service needed</label>
+    <select id="service" name="service">
+      <option value="">Not sure yet</option>
+      <option>Home WiFi improvement</option>
+      <option>UniFi network installation</option>
+      <option>Small business infrastructure</option>
+      <option>UniFi Protect cameras</option>
+      <option>Door access or intercom</option>
+      <option>Fiber or structured cabling</option>
+      <option>Building-to-building connection</option>
+      <option>Outdoor or rural connectivity</option>
+      <option>Network troubleshooting</option>
+    </select>
+  </div>
+  <div class="form-field full">
+    <label for="message">Tell us about the project *</label>
+    <textarea id="message" name="message" required placeholder="What is not working today, what areas need coverage, and what equipment do you already have?"></textarea>
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-primary" type="submit">Send Request</button>
+    <p class="form-status" data-form-status aria-live="polite"></p>
+  </div>
+</form>
+
   </div>
 </section>
+
 </main>
 
 
 <footer class="site-footer"><div class="container footer-grid"><div><a class="brand" href="/"><img src="/assets/images/berthoud-wifi-logo.png" alt="Berthoud WiFi logo"><span>Berthoud WiFi</span></a><p>UniFi-first WiFi, networking, cameras, access, fiber, and local support across Northern Colorado.</p></div><div class="footer-links"><strong>Services</strong><a href="/services/home-network-improvements.html">Home Networks</a><a href="/services/small-business-infrastructure.html">Small Business</a><a href="/services/unifi-protect-security.html">Cameras & Security</a><a href="/services/fiber-structured-cabling.html">Fiber & Cabling</a></div><div class="footer-links"><strong>Explore</strong><a href="/news/index.html">The Connected Front Range</a><a href="/cities/berthoud.html">Berthoud</a><a href="/cities/loveland.html">Loveland</a><a href="/cities/fort-collins.html">Fort Collins</a></div></div><div class="container"><p>© <span data-year></span> Berthoud WiFi. All rights reserved.</p></div></footer>
 
 <script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/contact-form.js" defer></script>
 </body>
 </html>
