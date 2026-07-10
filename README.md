@@ -36,3 +36,28 @@ The form includes:
 - a honeypot spam field
 - Reply-To set to the visitor's email
 - browser success and error messages
+
+
+## Branded email workflow
+
+Every successful form submission now sends two branded Resend emails:
+
+1. **Lead notification to Berthoud WiFi**
+   - Branded header and logo
+   - Contact and project summary
+   - Services, budget, timeline, city, and property type
+   - Project details
+   - Reply and call buttons
+
+2. **Automatic confirmation to the customer**
+   - Branded confirmation
+   - Copy of their submitted project details
+   - Email and service buttons
+
+Recommended Cloudflare variables:
+
+- `CONTACT_FROM_EMAIL=Berthoud WiFi <forms@berthoudwifi.com>`
+- `CONTACT_TO_EMAIL=hello@berthoudwifi.com`
+- `RESEND_API_KEY` as an encrypted secret
+
+The sender domain must be verified in Resend.

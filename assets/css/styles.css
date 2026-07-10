@@ -282,3 +282,43 @@ button:disabled{opacity:.62;cursor:not-allowed}
   .contact-form{grid-template-columns:1fr}
   .form-field.full,.form-actions{grid-column:auto}
 }
+
+
+.service-picker{
+  border:0;
+  padding:0;
+  margin:0;
+}
+.service-picker legend{
+  font-size:.9rem;
+  font-weight:800;
+  margin-bottom:9px;
+}
+.check-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.check-grid label{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  padding:11px 12px;
+  background:#091522;
+  border:1px solid var(--line);
+  border-radius:12px;
+  color:var(--muted);
+  font-size:.9rem;
+  cursor:pointer;
+}
+.check-grid label:hover{
+  border-color:rgba(101,199,255,.45);
+  color:var(--text);
+}
+.check-grid input{
+  margin-top:3px;
+  accent-color:var(--accent);
+}
+@media(max-width:620px){
+  .check-grid{grid-template-columns:1fr}
+}

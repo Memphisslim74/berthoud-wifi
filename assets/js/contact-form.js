@@ -1,8 +1,11 @@
-const form = document.querySelector("[data-contact-form]");
-const statusBox = document.querySelector("[data-form-status]");
-const submitButton = form?.querySelector('button[type="submit"]');
+const forms = document.querySelectorAll("[data-contact-form]");
 
-if (form && statusBox && submitButton) {
+forms.forEach((form) => {
+  const statusBox = form.querySelector("[data-form-status]");
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  if (!statusBox || !submitButton) return;
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -11,7 +14,16 @@ if (form && statusBox && submitButton) {
     submitButton.disabled = true;
 
     const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = {};
+
+    for (const [key, value] of formData.entries()) {
+      if (key === "services") {
+        if (!Array.isArray(payload.services)) payload.services = [];
+        payload.services.push(value);
+      } else {
+        payload[key] = value;
+      }
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -37,4 +49,4 @@ if (form && statusBox && submitButton) {
       submitButton.disabled = false;
     }
   });
-}
+});
