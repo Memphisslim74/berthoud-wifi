@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://berthoudwifi.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://berthoudwifi.com/</loc></url>
+  <url><loc>https://berthoudwifi.com/about.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/wifi-installation.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/unifi-network-installation.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/outdoor-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/security-cameras.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/network-troubleshooting.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/berthoud.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/loveland.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/fort-collins.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/longmont.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/erie.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/boulder.html</loc></url>
 </urlset>
