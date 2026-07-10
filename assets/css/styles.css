@@ -1201,3 +1201,47 @@ body{
   .fact-grid,.related-links{grid-template-columns:1fr}
   .authority-hero img{height:220px}
 }
+
+
+/* v13 guide/comparison/industry expansion */
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.resource-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 10px 24px rgba(16,32,51,.06);
+}
+.resource-card h3{font-size:1.12rem}
+.resource-card p{color:var(--muted);font-size:.94rem}
+.comparison-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:24px 0;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+}
+.comparison-table th,
+.comparison-table td{
+  padding:13px 14px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  vertical-align:top;
+}
+.comparison-table th{
+  background:#f5f7fa;
+  color:#21364a;
+}
+@media(max-width:900px){
+  .resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:620px){
+  .resource-grid{grid-template-columns:1fr}
+  .comparison-table{display:block;overflow-x:auto}
+}
