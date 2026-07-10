@@ -3,7 +3,7 @@ title: "Why WiFi Extenders Fail on Larger Northern Colorado Properties"
 date: "2026-07-10"
 author: "Steve Smith"
 description: "Why consumer extenders often create unreliable coverage in larger homes, shops, barns, and acreage properties."
-image: "/assets/images/services/rural-connectivity.png"
+image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=82"
 slug: "why-wifi-extenders-fail-large-properties"
 published: true
 ---

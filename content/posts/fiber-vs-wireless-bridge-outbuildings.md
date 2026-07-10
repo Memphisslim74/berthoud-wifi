@@ -3,7 +3,7 @@ title: "Fiber or Wireless Bridge: The Better Way to Connect an Outbuilding"
 date: "2026-07-10"
 author: "Steve Smith"
 description: "How to choose between fiber and a point-to-point wireless bridge for barns, shops, garages, and detached offices."
-image: "/assets/images/services/building-bridges.png"
+image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=82"
 slug: "fiber-vs-wireless-bridge-outbuildings"
 published: true
 ---

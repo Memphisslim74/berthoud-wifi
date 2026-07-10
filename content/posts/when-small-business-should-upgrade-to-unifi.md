@@ -3,7 +3,7 @@ title: "When a Small Business Should Upgrade to a UniFi Network"
 date: "2026-07-10"
 author: "Steve Smith"
 description: "Signs that a small business has outgrown consumer routers, unmanaged switches, and one shared WiFi network."
-image: "/assets/images/services/small-business.png"
+image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=82"
 slug: "when-small-business-should-upgrade-to-unifi"
 published: true
 ---
