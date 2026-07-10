@@ -7,7 +7,7 @@
   <meta name="description" content="Request a quote for UniFi WiFi, networking, cameras, access control, fiber, or rural connectivity in Northern Colorado.">
   <link rel="canonical" href="https://berthoudwifi.com/contact.html">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=7">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VV539JDCW"></script>
 <script>
@@ -32,7 +32,7 @@
 </section>
 <section class="section">
   <div class="container contact-layout">
-    <div>
+    <div class="contact-aside">
       <h2>Start with the problem</h2>
       <p class="lead">You do not need to know which gateway, access point, camera, bridge, or switch you need. Describe the property and what is failing today.</p>
       <ul class="checklist">
@@ -43,11 +43,8 @@
       </ul>
     </div>
     
-<form class="contact-form card" data-contact-form novalidate>
-  <div class="honeypot" aria-hidden="true">
-    <label for="company_website">Company website</label>
-    <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off">
-  </div>
+<form class="contact-form quote-card" data-contact-form novalidate>
+  <div class="honeypot" aria-hidden="true" hidden style="display:none!important"><label for="company_website">Leave this field empty</label><input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
 
   <div class="form-field">
     <label for="name">Name *</label>
