@@ -2,11 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://berthoudwifi.com/</loc></url>
   <url><loc>https://berthoudwifi.com/about.html</loc></url>
-  <url><loc>https://berthoudwifi.com/services/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/berthoud.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/boulder.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/erie.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/estes-park.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/firestone.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/fort-collins.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/frederick.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/greeley.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/johnstown.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/lafayette.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/longmont.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/louisville.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/loveland.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/lyons.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/mead.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/milliken.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/severance.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/superior.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/timnath.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/wellington.html</loc></url>
+  <url><loc>https://berthoudwifi.com/cities/windsor.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/managed-vs-consumer-network.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/unifi-protect-vs-arlo.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/unifi-protect-vs-ring.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/unifi-vs-aruba-instant-on.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/unifi-vs-eero.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/unifi-vs-google-nest.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/unifi-vs-orbi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/unifi-vs-tp-link-omada.html</loc></url>
+  <url><loc>https://berthoudwifi.com/comparisons/wifi-extenders-vs-access-points.html</loc></url>
+  <url><loc>https://berthoudwifi.com/contact.html</loc></url>
+  <url><loc>https://berthoudwifi.com/equipment/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/equipment/unifi-u6-vs-u7.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/camera-placement-guide.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/choosing-unifi-access-point.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/fiber-installation-guide.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/future-proof-home-network.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/guest-wifi-best-practices.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/mesh-vs-wired-access-points.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/multi-gig-networking.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/network-rack-design.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/outdoor-wifi-guide.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/poe-explained.html</loc></url>
+  <url><loc>https://berthoudwifi.com/guides/vlan-guide-small-business.html</loc></url>
+  <url><loc>https://berthoudwifi.com/industries/airbnb-vacation-rental-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/industries/apartment-building-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/industries/hoa-community-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/industries/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/industries/law-firm-networking.html</loc></url>
+  <url><loc>https://berthoudwifi.com/industries/manufacturing-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/industries/medical-office-networking.html</loc></url>
+  <url><loc>https://berthoudwifi.com/industries/school-private-campus-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/installations.html</loc></url>
+  <url><loc>https://berthoudwifi.com/news/fiber-vs-wireless-bridge-outbuildings.html</loc></url>
   <url><loc>https://berthoudwifi.com/news/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/news/when-small-business-should-upgrade-to-unifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/news/why-wifi-extenders-fail-large-properties.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/building-to-building-connectivity.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/fiber-structured-cabling.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/home-network-improvements.html</loc></url>
+  <url><loc>https://berthoudwifi.com/services/index.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/network-modernization.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/network-troubleshooting.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/outdoor-wifi.html</loc></url>
@@ -17,15 +75,24 @@
   <url><loc>https://berthoudwifi.com/services/unifi-network-installation.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/unifi-protect-security.html</loc></url>
   <url><loc>https://berthoudwifi.com/services/wifi-installation.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/berthoud.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/boulder.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/erie.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/fort-collins.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/longmont.html</loc></url>
-  <url><loc>https://berthoudwifi.com/cities/loveland.html</loc></url>
-  <url><loc>https://berthoudwifi.com/news/why-wifi-extenders-fail-large-properties.html</loc></url>
-  <url><loc>https://berthoudwifi.com/news/when-small-business-should-upgrade-to-unifi.html</loc></url>
-  <url><loc>https://berthoudwifi.com/news/fiber-vs-wireless-bridge-outbuildings.html</loc></url>
-  <url><loc>https://berthoudwifi.com/contact.html</loc></url>
-  <url><loc>https://berthoudwifi.com/installations.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/barn-shop-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/cat6-vs-cat6a.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/church-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/detached-garage-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/fiber-vs-ethernet.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/guest-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/home-office-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/home-wifi-dead-zones.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/index.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/network-rack-installation.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/new-construction-networking.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/office-network-installation.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/poe-switching.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/restaurant-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/retail-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/smart-home-networking.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/unifi-protect-vs-consumer-cameras.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/vlan-network-segmentation.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/warehouse-wifi.html</loc></url>
+  <url><loc>https://berthoudwifi.com/solutions/why-unifi.html</loc></url>
 </urlset>
