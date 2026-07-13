@@ -18,7 +18,3 @@ export function onRequestGet({ env }) {
     siteKey: siteKey || null,
   });
 }
-
-export function onRequest() {
-  return json({ ok: false, message: "Method not allowed." }, 405);
-}
