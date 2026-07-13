@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "scripts/site_refresh.py"
+      - "scripts/site_refresh_fix.py"
       - ".github/workflows/site-refresh.yml"
   workflow_dispatch:
 
@@ -29,7 +30,9 @@ jobs:
         run: python -m pip install --disable-pip-version-check beautifulsoup4 lxml pillow
 
       - name: Apply SEO, image, contact, and design updates
-        run: python scripts/site_refresh.py
+        run: |
+          python scripts/site_refresh.py
+          python scripts/site_refresh_fix.py
 
       - name: Commit generated site updates
         run: |
