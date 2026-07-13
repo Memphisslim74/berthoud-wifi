@@ -1,4 +1,4 @@
-/* Berthoud WiFi v17 design system: editorial, local, and conversion-focused. */
+/* Berthoud WiFi v18 design system: editorial, local, and conversion-focused. */
 :root{
   --ink:#16233B;
   --body-text:#5B6472;
@@ -9,6 +9,7 @@
   --bg-tint:#F4F6F9;
   --border:#E7E9EE;
   --photo-placeholder:#E1E6EC;
+  --button-radius:5px;
   --text:var(--ink);
   --muted:var(--body-text);
   --accent:var(--accent-blue);
@@ -36,11 +37,32 @@ a{transition:color .18s ease,border-color .18s ease,background-color .18s ease,b
 .nav-phone span{color:var(--accent-blue);font-size:.95rem}
 .nav-dropdown{border:1px solid var(--border);border-radius:10px;box-shadow:0 14px 35px rgba(22,35,59,.10)}
 .nav-dropdown a:hover{background:var(--bg-tint)}
-.btn{border-radius:7px;font-family:Inter,sans-serif;font-weight:500;text-transform:none;box-shadow:none;padding:11px 17px}
+.btn,button.btn,input[type="submit"].btn,input[type="button"].btn{
+  border-radius:var(--button-radius)!important;
+  min-height:44px;
+  padding:12px 18px;
+  line-height:1.1;
+  white-space:nowrap;
+  flex:0 0 auto;
+  width:auto;
+  max-width:max-content;
+  font-family:Inter,sans-serif;
+  font-weight:500;
+  text-transform:none;
+  box-shadow:none;
+}
+.site-header .nav-links .btn{min-height:38px;padding:10px 15px}
+.menu-btn{border-radius:var(--button-radius)!important}
 .btn-primary,.site-header .nav-links .btn-primary,.site-header .nav-links .btn-primary:visited{background:var(--accent-clay)!important;color:#fff!important;border-color:var(--accent-clay)!important;box-shadow:none!important}
 .btn-primary:hover,.site-header .nav-links .btn-primary:hover{background:#A94F28!important;transform:translateY(-1px);filter:none}
 .btn-secondary{background:#fff;color:var(--ink);border:1px solid #C7CDD6}
 .btn-secondary:hover{border-color:var(--ink);background:var(--bg-tint)}
+.hero-actions{align-items:center}
+.hero-actions .btn{min-width:0}
+.cta>div{min-width:0}
+.cta>.btn,.content-cta>.btn{min-width:132px;align-self:center}
+.form-actions .btn{min-width:150px}
+.btn:disabled{cursor:not-allowed;opacity:.58;transform:none!important}
 .link-arrow{color:var(--accent-clay)!important;font-weight:500}
 .link-arrow:hover{color:#934521!important}
 .section{background:var(--bg-white)}
@@ -72,6 +94,11 @@ img{height:auto}
 .form-field input,.form-field select,.form-field textarea{background:#fff!important;color:var(--ink)!important;border:1px solid var(--border)!important;border-radius:7px}
 .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid rgba(25,88,196,.22);border-color:var(--accent-blue)!important}
 .check-grid label:hover{border-color:rgba(25,88,196,.35)!important;background:rgba(25,88,196,.04)!important;color:var(--ink)!important}
+.turnstile-field{gap:8px;margin-top:2px}
+.turnstile-field[hidden]{display:none!important}
+.turnstile-widget{min-height:65px;max-width:100%;color:var(--body-text);font-size:.92rem;line-height:1.55}
+.turnstile-field.is-error{padding:14px;border:1px solid #D7A691;border-radius:7px;background:var(--accent-clay-soft)}
+.turnstile-note{margin:0;color:var(--body-text);font-size:.78rem}
 .direct-contact{margin-top:28px;padding:22px;background:var(--bg-tint);border:1px solid var(--border);border-radius:10px}
 .direct-contact h2{font-size:1.55rem;margin-bottom:12px}
 .direct-contact p{margin:7px 0}
@@ -87,4 +114,9 @@ img{height:auto}
 .footer-social a{color:#DCE3EC;text-decoration:none}
 .footer-social a:hover{color:#fff}
 @media(max-width:1080px){.nav-phone{order:20}.site-header .nav-links .btn{order:21}}
-@media(max-width:700px){.home-hero h1{font-size:clamp(2.45rem,12vw,3.6rem)}.site-footer{padding-top:38px}}
+@media(max-width:700px){
+  .home-hero h1{font-size:clamp(2.45rem,12vw,3.6rem)}
+  .site-footer{padding-top:38px}
+  .cta>.btn,.content-cta>.btn{width:100%;max-width:280px;align-self:flex-start}
+  .form-actions .btn{width:100%;max-width:none}
+}
