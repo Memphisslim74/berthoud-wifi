@@ -3,12 +3,17 @@
   "short_name": "Berthoud WiFi",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#07111e",
-  "theme_color": "#07111e",
+  "background_color": "#FFFFFF",
+  "theme_color": "#16233B",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/favicon.png?v=17",
       "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png?v=17",
+      "sizes": "180x180",
       "type": "image/png"
     }
   ]
