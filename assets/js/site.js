@@ -5,6 +5,14 @@ document
     link.href = "/assets/css/brand-refresh.css?v=18";
   });
 
+function trackEvent(name, parameters = {}) {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", name, {
+    page_location: window.location.href,
+    ...parameters,
+  });
+}
+
 document.querySelectorAll("[data-year]").forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
@@ -41,6 +49,21 @@ document.querySelectorAll(".nav-dropdown-toggle").forEach((button) => {
 });
 
 document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (link) {
+    const href = link.getAttribute("href") || "";
+    if (href.startsWith("tel:")) {
+      trackEvent("phone_click", { link_url: href });
+    } else if (href.startsWith("mailto:")) {
+      trackEvent("email_click", { link_url: href });
+    } else if (
+      (href === "/contact" || href === "/contact/" || href.endsWith("/contact.html")) &&
+      link.classList.contains("btn")
+    ) {
+      trackEvent("quote_cta_click", { link_url: href, link_text: link.textContent.trim() });
+    }
+  }
+
   if (!event.target.closest(".nav-item")) {
     document.querySelectorAll(".nav-item.is-open").forEach((item) => {
       item.classList.remove("is-open");
