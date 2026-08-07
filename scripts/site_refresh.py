@@ -125,7 +125,9 @@ def optimize_images() -> dict[str, dict[str, Any]]:
         return mapping
 
     for path in PHOTO_ROOT.rglob("*"):
-        if not path.is_file() or path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
+        # WebP files are generated outputs. Reprocessing one in place can
+        # truncate it before Pillow finishes reading the source image.
+        if not path.is_file() or path.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
             continue
         if "-480" in path.stem or "-800" in path.stem or "-1200" in path.stem:
             continue

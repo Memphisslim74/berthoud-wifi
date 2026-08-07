@@ -210,6 +210,68 @@ PRIORITY_META = {
     ),
 }
 
+SITEWIDE_CONTACT_HTML = r'''
+<section class="sitewide-contact" aria-labelledby="sitewide-contact-title">
+  <div class="container sitewide-contact-grid">
+    <div class="sitewide-contact-copy">
+      <span class="eyebrow">Start a conversation</span>
+      <h2 id="sitewide-contact-title">Tell us what needs to work better.</h2>
+      <p>Share the property, the problem areas, and what you need the network to support. We will review the details and follow up with practical next steps.</p>
+      <div class="sitewide-contact-direct">
+        <a href="tel:+17202093130">Call 720-209-3130</a>
+        <a href="mailto:hello@berthoudwifi.com">hello@berthoudwifi.com</a>
+      </div>
+    </div>
+    <form class="contact-form quote-card compact-contact-form" data-contact-form novalidate>
+      <div class="honeypot" aria-hidden="true" hidden style="display:none!important">
+        <label for="sitewide-company-website">Leave this field empty</label>
+        <input id="sitewide-company-website" name="company_website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="form-field">
+        <label for="sitewide-name">Name *</label>
+        <input id="sitewide-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="form-field">
+        <label for="sitewide-email">Email *</label>
+        <input id="sitewide-email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="sitewide-phone">Phone</label>
+        <input id="sitewide-phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+      <div class="form-field">
+        <label for="sitewide-city">City</label>
+        <input id="sitewide-city" name="city" type="text" autocomplete="address-level2" placeholder="Berthoud, Loveland, Fort Collins…">
+      </div>
+      <div class="form-field full">
+        <label for="sitewide-service">What do you need help with?</label>
+        <select id="sitewide-service" name="services">
+          <option value="">Select a service</option>
+          <option>Home WiFi improvements</option>
+          <option>UniFi network installation</option>
+          <option>Small business infrastructure</option>
+          <option>UniFi Protect cameras</option>
+          <option>Door access or intercom</option>
+          <option>Fiber or structured cabling</option>
+          <option>Building-to-building connection</option>
+          <option>Outdoor or rural connectivity</option>
+          <option>Network troubleshooting</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-field full">
+        <label for="sitewide-message">How can we help? *</label>
+        <textarea id="sitewide-message" name="message" required placeholder="What is not working, where do you need coverage, and what equipment do you already have?"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Send Request</button>
+        <p class="form-status" data-form-status aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+'''
+
 
 def clean_route(route: str) -> str:
     if not route:
@@ -285,6 +347,53 @@ def clean_jsonld(value):
     return value
 
 
+def ensure_contact_experience(soup: BeautifulSoup, rel: str) -> None:
+    for duplicate in list(soup.select(".sitewide-contact")):
+        duplicate.decompose()
+
+    has_form = rel == "contact.html"
+    if rel not in {"contact.html", "thank-you.html"}:
+        section = BeautifulSoup(SITEWIDE_CONTACT_HTML, "html.parser").find("section")
+        footer = soup.select_one(".site-footer")
+        if footer:
+            footer.insert_before(section)
+        elif soup.body:
+            soup.body.append(section)
+        has_form = True
+
+    scripts = soup.find_all("script", src="/assets/js/contact-form.js")
+    if has_form:
+        if not scripts and soup.body:
+            script = soup.new_tag("script", src="/assets/js/contact-form.js")
+            script["defer"] = ""
+            soup.body.append(script)
+        for duplicate in scripts[1:]:
+            duplicate.decompose()
+
+        preconnect = soup.head.find(
+            "link", rel="preconnect", href="https://challenges.cloudflare.com"
+        )
+        if preconnect is None:
+            soup.head.append(
+                soup.new_tag(
+                    "link", rel="preconnect", href="https://challenges.cloudflare.com"
+                )
+            )
+    else:
+        for script in scripts:
+            script.decompose()
+
+
+def set_thank_you_indexing(soup: BeautifulSoup, rel: str) -> None:
+    if rel != "thank-you.html":
+        return
+    robots = soup.head.find("meta", attrs={"name": "robots"})
+    if robots is None:
+        robots = soup.new_tag("meta", attrs={"name": "robots"})
+        soup.head.append(robots)
+    robots["content"] = "noindex, nofollow"
+
+
 def normalize_html(path: Path) -> None:
     soup = BeautifulSoup(path.read_text(encoding="utf-8"), "lxml")
     if not soup.head:
@@ -293,6 +402,9 @@ def normalize_html(path: Path) -> None:
     rel = path.relative_to(ROOT).as_posix()
     if rel in PRIORITY_META:
         set_meta(soup, *PRIORITY_META[rel])
+
+    ensure_contact_experience(soup, rel)
+    set_thank_you_indexing(soup, rel)
 
     canonical_url = SITE_URL + route_for_file(path)
     canonical = soup.head.find("link", rel="canonical")
@@ -398,9 +510,11 @@ def update_news_index(published: list[dict]) -> None:
 def update_sitemap(published: list[dict]) -> None:
     post_dates = {f"news/{p['slug']}.html": p["date"] for p in published}
     urls = []
-    for path in ROOT.rglob("*.html"):
+    for path in sorted(ROOT.rglob("*.html")):
         rel = path.relative_to(ROOT).as_posix()
         if any(part in {"dist", "node_modules"} or part.startswith(".") for part in path.relative_to(ROOT).parts):
+            continue
+        if rel == "thank-you.html":
             continue
         route = route_for_file(path)
         lastmod = post_dates.get(rel, BASELINE_LASTMOD)
@@ -425,7 +539,7 @@ def main() -> None:
         render_article(post)
     update_news_index(published)
 
-    for path in ROOT.rglob("*.html"):
+    for path in sorted(ROOT.rglob("*.html")):
         if any(part in {"dist", "node_modules"} or part.startswith(".") for part in path.relative_to(ROOT).parts):
             continue
         normalize_html(path)
