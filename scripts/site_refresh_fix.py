@@ -123,13 +123,15 @@ def fix_html(path: Path) -> None:
         touch["href"] = "/apple-touch-icon.png?v=17"
         touch["sizes"] = "180x180"
 
-    brand_stylesheet = soup.head.find(
+    brand_stylesheets = soup.head.find_all(
         "link",
         rel="stylesheet",
         href=lambda value: value and value.startswith("/assets/css/brand-refresh.css"),
     )
-    if brand_stylesheet:
-        brand_stylesheet["href"] = BRAND_CSS
+    if brand_stylesheets:
+        brand_stylesheets[0]["href"] = BRAND_CSS
+        for duplicate in brand_stylesheets[1:]:
+            duplicate.decompose()
     else:
         soup.head.append(soup.new_tag("link", rel="stylesheet", href=BRAND_CSS))
 
