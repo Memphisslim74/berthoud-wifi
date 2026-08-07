@@ -44,9 +44,27 @@ CSS_OVERRIDES = r'''
 .turnstile-widget{min-height:65px;max-width:100%;color:var(--body-text);font-size:.92rem;line-height:1.55}
 .turnstile-field.is-error{padding:14px;border:1px solid #D7A691;border-radius:7px;background:var(--accent-clay-soft)}
 .turnstile-note{margin:0;color:var(--body-text);font-size:.78rem}
+.sitewide-contact{padding:64px 0;background:var(--bg-tint);border-top:1px solid var(--border)}
+.sitewide-contact-grid{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1.28fr);gap:48px;align-items:start}
+.sitewide-contact-copy{padding-top:8px}
+.sitewide-contact-copy h2{margin:10px 0 14px;font-size:clamp(2rem,4vw,3rem)}
+.sitewide-contact-copy p{max-width:46ch;margin:0 0 20px}
+.sitewide-contact-direct{display:grid;gap:8px}
+.sitewide-contact-direct a{width:max-content;color:var(--accent-blue);font-weight:600;text-decoration:none}
+.compact-contact-form{padding:24px}
+.compact-contact-form textarea{min-height:118px}
+.thank-you-card{max-width:820px;margin:0 auto;padding:clamp(28px,5vw,54px);text-align:center}
+.thank-you-card h1{margin:10px 0 16px}
+.thank-you-next{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:30px 0;text-align:left}
+.thank-you-step{padding:18px;background:var(--bg-tint);border:1px solid var(--border);border-radius:10px}
+.thank-you-step strong{display:block;margin-bottom:7px;color:var(--ink)}
+.thank-you-step p{margin:0;font-size:.92rem}
 @media(max-width:700px){
   .cta>.btn,.content-cta>.btn{width:100%;max-width:280px;align-self:flex-start}
   .form-actions .btn{width:100%;max-width:none}
+  .sitewide-contact{padding:46px 0}
+  .sitewide-contact-grid{grid-template-columns:1fr;gap:28px}
+  .thank-you-next{grid-template-columns:1fr}
 }
 '''
 
@@ -170,7 +188,7 @@ def fix_html(path: Path) -> None:
         img["loading"] = "lazy"
         img.attrs.pop("fetchpriority", None)
 
-    if relative != "contact.html":
+    if not soup.select_one("[data-contact-form]"):
         for script in soup.find_all("script", src="/assets/js/contact-form.js"):
             script.decompose()
 

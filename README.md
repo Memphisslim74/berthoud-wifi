@@ -16,7 +16,7 @@ All custom artwork is PNG. No SVG artwork or decorative animation is used.
 
 ## Resend contact forms
 
-The homepage and `/contact.html` submit to the Cloudflare Pages Function at:
+Every customer-facing page includes a contact form that submits to the Cloudflare Pages Function at:
 
 `/functions/api/contact.js`
 
@@ -51,8 +51,11 @@ Every successful form submission now sends two branded Resend emails:
 
 2. **Automatic confirmation to the customer**
    - Branded confirmation
-   - Copy of their submitted project details
+   - Copy of their submitted contact and project details
+   - A short “What happens next” section
    - Email and service buttons
+
+Successful submissions redirect to `/thank-you`, which records the GA4 lead events and provides a dedicated conversion destination. The thank-you page is intentionally excluded from search indexing and the XML sitemap.
 
 Recommended Cloudflare variables:
 

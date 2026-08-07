@@ -157,6 +157,15 @@ forms.forEach((form) => {
 
   if (!statusBox || !submitButton) return;
 
+  let sourceInput = form.querySelector('input[name="source_page"]');
+  if (!sourceInput) {
+    sourceInput = document.createElement("input");
+    sourceInput.type = "hidden";
+    sourceInput.name = "source_page";
+    form.appendChild(sourceInput);
+  }
+  sourceInput.value = window.location.pathname;
+
   const turnstileState = {
     enabled: false,
     failed: false,
@@ -174,6 +183,14 @@ forms.forEach((form) => {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      statusBox.textContent = "Please complete the required fields before sending.";
+      statusBox.className = "form-status is-error";
+      return;
+    }
+
     await turnstileState.ready;
 
     if (turnstileState.failed) {
@@ -225,17 +242,14 @@ forms.forEach((form) => {
 
       statusBox.textContent = result.message;
       statusBox.className = "form-status is-success";
-      form.reset();
-
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "generate_lead", {
-          lead_source: "website_quote_form",
-          page_location: window.location.href,
-        });
-        window.gtag("event", "quote_form_submit", {
-          page_location: window.location.href,
-        });
-      }
+      const leadState = {
+        sourcePage: window.location.pathname,
+        confirmationSent: result.confirmationSent !== false,
+        submittedAt: Date.now(),
+      };
+      sessionStorage.setItem("berthoudLeadSubmitted", JSON.stringify(leadState));
+      window.location.assign("/thank-you");
+      return;
     } catch (error) {
       statusBox.textContent =
         error.message || "Unable to send your request. Please try again.";

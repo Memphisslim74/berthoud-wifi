@@ -120,6 +120,7 @@ export async function onRequestPost(context) {
   const budget = clean(body.budget, 100);
   const timeline = clean(body.timeline, 100);
   const message = clean(body.message, 5000);
+  const sourcePage = clean(body.source_page, 500) || "/contact";
   const services = formatServices(body.services);
 
   if (!name || !email || !message) {
@@ -152,6 +153,7 @@ export async function onRequestPost(context) {
       ${infoRow("Services", escapeHtml(serviceSummary))}
       ${infoRow("Budget", escapeHtml(budget || "Not provided"))}
       ${infoRow("Timeline", escapeHtml(timeline || "Not provided"))}
+      ${infoRow("Source page", escapeHtml(sourcePage))}
       ${infoRow("Received", escapeHtml(submittedAt))}
     </table>
 
@@ -167,6 +169,9 @@ export async function onRequestPost(context) {
 
   const customerRows = `
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e3ebf3;border-radius:14px;overflow:hidden">
+      ${infoRow("Name", escapeHtml(name))}
+      ${infoRow("Email", escapeHtml(email))}
+      ${infoRow("Phone", escapeHtml(phone || "Not provided"))}
       ${infoRow("City", escapeHtml(city || "Not provided"))}
       ${infoRow("Property", escapeHtml(propertyType || "Not provided"))}
       ${infoRow("Services", escapeHtml(serviceSummary))}
@@ -179,9 +184,18 @@ export async function onRequestPost(context) {
       <div style="white-space:pre-wrap;color:#24384d;font-size:15px;line-height:1.65">${escapeHtml(message)}</div>
     </div>
 
+    <div style="margin-top:22px;border:1px solid #dce7f0;border-radius:14px;padding:18px">
+      <div style="font-size:12px;font-weight:800;color:#1597ff;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">What happens next</div>
+      <ol style="margin:0;padding-left:20px;color:#24384d;font-size:15px;line-height:1.7">
+        <li>We review the property, problem areas, and services you selected.</li>
+        <li>We follow up by email or phone if we need a few more details or should arrange a walkthrough.</li>
+        <li>We outline the recommended next steps and a project-specific estimate.</li>
+      </ol>
+    </div>
+
     <div style="margin-top:24px;text-align:center">
       <a href="mailto:${escapeHtml(toEmail)}" style="display:inline-block;background:#1597ff;color:white;text-decoration:none;font-weight:800;padding:13px 20px;border-radius:999px;margin:4px">Email Berthoud WiFi</a>
-      <a href="https://berthoudwifi.com/services/index.html" style="display:inline-block;background:#0b1725;color:white;text-decoration:none;font-weight:800;padding:13px 20px;border-radius:999px;margin:4px">View Services</a>
+      <a href="https://berthoudwifi.com/services/" style="display:inline-block;background:#0b1725;color:white;text-decoration:none;font-weight:800;padding:13px 20px;border-radius:999px;margin:4px">View Services</a>
     </div>`;
 
   const adminHtml = emailShell({
@@ -210,6 +224,7 @@ export async function onRequestPost(context) {
     `Services: ${serviceSummary}`,
     `Budget: ${budget || "Not provided"}`,
     `Timeline: ${timeline || "Not provided"}`,
+    `Source page: ${sourcePage}`,
     `Received: ${submittedAt}`,
     "",
     "Project details:",
@@ -220,6 +235,9 @@ export async function onRequestPost(context) {
     `Thanks, ${name}.`,
     "We received your Berthoud WiFi request and will review it shortly.",
     "",
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone || "Not provided"}`,
     `City: ${city || "Not provided"}`,
     `Property: ${propertyType || "Not provided"}`,
     `Services: ${serviceSummary}`,
@@ -228,6 +246,11 @@ export async function onRequestPost(context) {
     "",
     "Your project details:",
     message,
+    "",
+    "WHAT HAPPENS NEXT",
+    "1. We review the property, problem areas, and services you selected.",
+    "2. We follow up by email or phone if we need more details or should arrange a walkthrough.",
+    "3. We outline the recommended next steps and a project-specific estimate.",
     "",
     "Berthoud WiFi",
     "https://berthoudwifi.com",
@@ -263,6 +286,7 @@ export async function onRequestPost(context) {
       message: confirmationSent
         ? "Thanks — your request has been sent. A confirmation email is on its way."
         : "Thanks — your request has been sent. We’ll be in touch soon.",
+      confirmationSent,
       id: adminResult.id,
     });
   } catch (error) {
