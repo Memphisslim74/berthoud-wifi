@@ -139,7 +139,7 @@ async function initializeTurnstile(form, submitButton, statusBox, state) {
     field.classList.add("is-error");
     field.querySelector("[data-turnstile-container]").textContent =
       "The security check is temporarily unavailable. Please call 720-209-3130 or email hello@berthoudwifi.com.";
-    statusBox.textContent = "The form security check could not load.";
+    statusBox.textContent = "The security check could not load.";
     statusBox.className = "form-status is-error";
   }
 }
@@ -226,6 +226,16 @@ forms.forEach((form) => {
       statusBox.textContent = result.message;
       statusBox.className = "form-status is-success";
       form.reset();
+
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          lead_source: "website_quote_form",
+          page_location: window.location.href,
+        });
+        window.gtag("event", "quote_form_submit", {
+          page_location: window.location.href,
+        });
+      }
     } catch (error) {
       statusBox.textContent =
         error.message || "Unable to send your request. Please try again.";
