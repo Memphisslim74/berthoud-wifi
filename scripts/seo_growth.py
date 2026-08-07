@@ -211,7 +211,7 @@ PRIORITY_META = {
 }
 
 SITEWIDE_CONTACT_HTML = r'''
-<section class="sitewide-contact" aria-labelledby="sitewide-contact-title">
+<section id="contact" class="sitewide-contact" aria-labelledby="sitewide-contact-title">
   <div class="container sitewide-contact-grid">
     <div class="sitewide-contact-copy">
       <span class="eyebrow">Start a conversation</span>
