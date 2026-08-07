@@ -49,5 +49,5 @@ jobs:
             echo "No generated changes to commit."
             exit 0
           fi
-          git commit -m "Apply SEO, performance, contact, and scheduled content updates [skip ci]"
+          git commit -m "Apply SEO, performance, contact, and scheduled content updates"
           git push
