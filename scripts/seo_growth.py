@@ -217,7 +217,7 @@ SITEWIDE_CONTACT_HTML = r'''
       <span class="eyebrow">Start a conversation</span>
       <h2 id="sitewide-contact-title">Tell us what needs to work better.</h2>
       <p>Share the property, the problem areas, and what you need the network to support. We will review the details and follow up with practical next steps.</p>
-      <div class="sitewide-contact-direct">
+      <div class="sitewide-contact-direct" data-nosnippet="">
         <a href="tel:+17202093130">Call 720-209-3130</a>
         <a href="mailto:hello@berthoudwifi.com">hello@berthoudwifi.com</a>
       </div>
