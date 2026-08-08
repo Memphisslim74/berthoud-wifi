@@ -310,22 +310,28 @@ def update_footer(soup: BeautifulSoup) -> None:
     footer = soup.select_one(".site-footer")
     if not footer:
         return
+    footer_grid = footer.select_one(".footer-grid")
+    if footer_grid:
+        footer_grid["data-nosnippet"] = ""
     for img in footer.select(".brand img"):
         img["src"] = LOGO_PATH
         img["alt"] = "Berthoud WiFi"
         img["width"] = "1024"
         img["height"] = "1024"
-    if footer.select_one(".footer-contact"):
+    existing_contact = footer.select_one(".footer-contact")
+    if existing_contact:
+        existing_contact["data-nosnippet"] = ""
         return
     first_col = footer.select_one(".footer-grid > div")
     if not first_col:
         return
     contact = soup.new_tag("div")
     contact["class"] = ["footer-contact"]
+    contact["data-nosnippet"] = ""
     contact.append(BeautifulSoup(
-        f'<a href="tel:{PHONE_E164}"><span aria-hidden="true">☎</span>{PHONE_DISPLAY}</a>'
-        f'<a href="mailto:{EMAIL}">{EMAIL}</a>'
-        f'<span class="footer-social"><a href="{FACEBOOK}" target="_blank" rel="noopener noreferrer">Facebook</a>'
+        f'<a href="tel:{PHONE_E164}"><span aria-hidden="true">☎</span>{PHONE_DISPLAY}</a> '
+        f'<a href="mailto:{EMAIL}">{EMAIL}</a> '
+        f'<span class="footer-social"><a href="{FACEBOOK}" target="_blank" rel="noopener noreferrer">Facebook</a> '
         f'<a href="{LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>',
         "html.parser",
     ))
