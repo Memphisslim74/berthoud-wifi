@@ -21,6 +21,17 @@ const escapeHtml = (value) =>
 
 const isEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
+const safeWebUrl = (value) => {
+  const candidate = clean(value, 1000);
+  if (!candidate) return "";
+  try {
+    const url = new URL(candidate);
+    return ["https:", "http:"].includes(url.protocol) ? url.toString() : "";
+  } catch {
+    return "";
+  }
+};
+
 const formatServices = (services) => {
   if (Array.isArray(services)) return services.map((s) => clean(s, 100)).filter(Boolean);
   if (!services) return [];
@@ -117,6 +128,11 @@ export async function onRequestPost(context) {
   const phone = clean(body.phone, 50);
   const city = clean(body.city, 100);
   const propertyType = clean(body.property_type, 100);
+  const company = clean(body.company, 150);
+  const projectSize = clean(body.project_size, 100);
+  const constructionPhase = clean(body.construction_phase, 150);
+  const drywallDate = clean(body.drywall_date, 50);
+  const plansLink = safeWebUrl(body.plans_link);
   const budget = clean(body.budget, 100);
   const timeline = clean(body.timeline, 100);
   const message = clean(body.message, 5000);
@@ -150,6 +166,11 @@ export async function onRequestPost(context) {
       ${infoRow("Phone", phone ? `<a href="tel:${escapeHtml(phone)}" style="color:#0875d2;text-decoration:none">${escapeHtml(phone)}</a>` : "Not provided")}
       ${infoRow("City", escapeHtml(city || "Not provided"))}
       ${infoRow("Property", escapeHtml(propertyType || "Not provided"))}
+      ${company ? infoRow("Builder / company", escapeHtml(company)) : ""}
+      ${projectSize ? infoRow("Project size", escapeHtml(projectSize)) : ""}
+      ${constructionPhase ? infoRow("Construction phase", escapeHtml(constructionPhase)) : ""}
+      ${drywallDate ? infoRow("Target drywall", escapeHtml(drywallDate)) : ""}
+      ${plansLink ? infoRow("Plan link", `<a href="${escapeHtml(plansLink)}" style="color:#0875d2;text-decoration:none">Open secure plan link</a>`) : ""}
       ${infoRow("Services", escapeHtml(serviceSummary))}
       ${infoRow("Budget", escapeHtml(budget || "Not provided"))}
       ${infoRow("Timeline", escapeHtml(timeline || "Not provided"))}
@@ -174,6 +195,11 @@ export async function onRequestPost(context) {
       ${infoRow("Phone", escapeHtml(phone || "Not provided"))}
       ${infoRow("City", escapeHtml(city || "Not provided"))}
       ${infoRow("Property", escapeHtml(propertyType || "Not provided"))}
+      ${company ? infoRow("Builder / company", escapeHtml(company)) : ""}
+      ${projectSize ? infoRow("Project size", escapeHtml(projectSize)) : ""}
+      ${constructionPhase ? infoRow("Construction phase", escapeHtml(constructionPhase)) : ""}
+      ${drywallDate ? infoRow("Target drywall", escapeHtml(drywallDate)) : ""}
+      ${plansLink ? infoRow("Plan link", escapeHtml(plansLink)) : ""}
       ${infoRow("Services", escapeHtml(serviceSummary))}
       ${infoRow("Budget", escapeHtml(budget || "Not provided"))}
       ${infoRow("Timeline", escapeHtml(timeline || "Not provided"))}
@@ -221,6 +247,11 @@ export async function onRequestPost(context) {
     `Phone: ${phone || "Not provided"}`,
     `City: ${city || "Not provided"}`,
     `Property: ${propertyType || "Not provided"}`,
+    `Builder / company: ${company || "Not provided"}`,
+    `Project size: ${projectSize || "Not provided"}`,
+    `Construction phase: ${constructionPhase || "Not provided"}`,
+    `Target drywall: ${drywallDate || "Not provided"}`,
+    `Plan link: ${plansLink || "Not provided"}`,
     `Services: ${serviceSummary}`,
     `Budget: ${budget || "Not provided"}`,
     `Timeline: ${timeline || "Not provided"}`,
@@ -240,6 +271,11 @@ export async function onRequestPost(context) {
     `Phone: ${phone || "Not provided"}`,
     `City: ${city || "Not provided"}`,
     `Property: ${propertyType || "Not provided"}`,
+    `Builder / company: ${company || "Not provided"}`,
+    `Project size: ${projectSize || "Not provided"}`,
+    `Construction phase: ${constructionPhase || "Not provided"}`,
+    `Target drywall: ${drywallDate || "Not provided"}`,
+    `Plan link: ${plansLink || "Not provided"}`,
     `Services: ${serviceSummary}`,
     `Budget: ${budget || "Not provided"}`,
     `Timeline: ${timeline || "Not provided"}`,

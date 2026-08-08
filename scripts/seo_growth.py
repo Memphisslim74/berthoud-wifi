@@ -19,7 +19,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_URL = "https://berthoudwifi.com"
-BASELINE_LASTMOD = "2026-08-07"
+BASELINE_LASTMOD = "2026-08-08"
 DENVER = ZoneInfo("America/Denver")
 TODAY = datetime.now(DENVER).date().isoformat()
 
@@ -187,6 +187,177 @@ POSTS = [
     },
 ]
 
+POSTS.extend([
+    {
+        "slug": "home-ethernet-installation-cost-northern-colorado",
+        "date": "2026-08-08",
+        "title": "How Much Does Home Ethernet Installation Cost in Northern Colorado?",
+        "description": "A practical 2026 guide to home Ethernet installation cost, including price per drop, finished-home labor, Cat6, patch panels, testing, and new construction.",
+        "image": "/assets/images/actual/fiber-ethernet.webp",
+        "image_alt": "Professional Cat6 Ethernet and structured cabling installation",
+        "category": "Home Ethernet cost",
+        "body": r'''
+<p>Home Ethernet installation can range from a simple office wall jack to a complete structured wiring system serving access points, cameras, televisions, workstations, and a central network rack. The largest cost factor is usually not the cable itself. It is the labor required to create a clean path through the home.</p>
+<p>Published 2026 pricing guides vary widely: <a href="https://www.angi.com/articles/ethernet-installation-cost.htm" rel="noopener noreferrer">Angi reports a broad $400 to $3,500 range for many home projects</a>, while other professional cabling guides commonly use roughly $100 to $250 per straightforward drop as an early budgeting range. Northern Colorado homes with finished basements, multiple floors, vaulted ceilings, fire blocking, stone, or limited attic access can cost more. An onsite scope is the only reliable way to price a retrofit.</p>
+<h2>What changes the cost per Ethernet drop?</h2>
+<ul><li>Whether walls are open or finished.</li><li>Attic, basement, and crawlspace access.</li><li>The distance and difficulty of each cable route.</li><li>Cat6 versus Cat6A and pathway size.</li><li>Exterior, masonry, or fire-rated penetrations.</li><li>Patch panels, wall plates, racks, switches, and UPS equipment.</li><li>Testing, labeling, documentation, and drywall repair requirements.</li></ul>
+<h2>Finished-home retrofit versus new construction</h2>
+<p>New construction is generally more efficient because cable routes are visible and multiple drops can be installed together before insulation and drywall. Finished homes require more planning and careful fishing. A low-looking price that excludes termination, testing, wall plates, patch-panel work, or cleanup is not directly comparable with a complete installation.</p>
+<h2>How many locations should be included?</h2>
+<p>Start with wired access points, home offices, televisions, gaming areas, cameras, doorbells, and the network rack. In new construction, spare drops and conduit are inexpensive compared with opening walls later. In an existing home, focus first on the locations that will materially improve reliability.</p>
+<h2>What should a professional quote include?</h2>
+<p>A useful quote should identify cable type, approximate routes, termination points, testing standard, labels, wall plates, patch-panel work, equipment exclusions, and any expected access or repair work. Berthoud WiFi provides <a href="/services/home-ethernet-installation">home Ethernet installation</a> and <a href="/builders/custom-home-low-voltage-prewire">custom-home pre-wire planning</a> across Northern Colorado. Send the rooms, device types, network location, and a few property details for a project-specific estimate.</p>
+''',
+    },
+    {
+        "slug": "how-many-ethernet-drops-new-custom-home",
+        "date": "2026-08-16",
+        "title": "How Many Ethernet Drops Should a New Custom Home Have?",
+        "description": "Plan Ethernet drops for a new custom home, including access points, offices, televisions, cameras, doorbells, outdoor areas, racks, and future conduit.",
+        "image": "/assets/images/projects/new-construction-ap.webp",
+        "image_alt": "New custom-home access point location planned before drywall",
+        "category": "Custom-home planning",
+        "body": r'''
+<p>There is no universal Ethernet-drop count for a custom home. A better plan starts with rooms, devices, coverage, and future pathways. A modest home may need a dozen carefully chosen runs. A larger custom home with cameras, multiple offices, outdoor living, and detached structures may need several dozen.</p>
+<h2>Count systems, not just rooms</h2>
+<p>Include wired WiFi access points, workstations, televisions, gaming areas, printers, cameras, doorbells, intercoms, touch panels, audio equipment, gates, garages, and outbuildings. Many of those locations use PoE, so the central switch and power budget matter as much as the cable count.</p>
+<h2>Use at least two cables at important media and office locations</h2>
+<p>Two or more runs create flexibility for a computer, phone, television, streaming device, small switch, or future equipment. Dedicated wired access points and cameras should normally have their own home runs to the network location.</p>
+<h2>Do not forget ceilings and exterior areas</h2>
+<p>Ceiling access-point locations are far easier to wire before drywall. Patios, pools, driveways, gates, soffits, garages, and shops should be included in the same property-wide plan.</p>
+<h2>Add conduit where the future is uncertain</h2>
+<p>Conduit can be more valuable than guessing at every future cable. Consider pathways from the service entrance to the rack, from the rack to attic or crawlspace areas, and toward gates or detached buildings.</p>
+<p>Berthoud WiFi reviews plans with builders and homeowners through our <a href="/builders/custom-home-low-voltage-prewire">custom-home low-voltage pre-wire service</a>. The result is a labeled plan tied to the home’s actual technology goals.</p>
+''',
+    },
+    {
+        "slug": "security-camera-installation-cost-northern-colorado",
+        "date": "2026-08-23",
+        "title": "Security Camera Installation Cost in Northern Colorado",
+        "description": "What affects the cost of professional wired security camera installation, including camera count, PoE cabling, recorder storage, mounting, gates, and local recording.",
+        "image": "/assets/images/projects/completed-outdoor-device.webp",
+        "image_alt": "Completed professional outdoor security camera installation",
+        "category": "Camera installation cost",
+        "body": r'''
+<p>Security-camera installation cost depends on more than the number of cameras. A complete wired system may include camera planning, Ethernet cabling, PoE switching, mounting, a recorder, storage, UPS protection, configuration, and remote access.</p>
+<p><a href="https://www.homeadvisor.com/cost/safety-and-security/security-camera-installation-cost/" rel="noopener noreferrer">HomeAdvisor's 2026 national guide places many professional home installations between about $593 and $2,040</a>, with larger or more complex systems extending beyond that range. Northern Colorado projects with long driveways, gates, barns, detached shops, high mounting locations, masonry, or difficult cable routes need a property-specific design.</p>
+<h2>The largest cost drivers</h2>
+<ul><li>Number and type of cameras.</li><li>New PoE cabling versus reusable cabling.</li><li>Mounting height, exterior access, and surface type.</li><li>Recorder model and desired footage retention.</li><li>Remote buildings, gates, fiber, or wireless bridges.</li><li>Night identification distance and specialty lenses.</li><li>Switching, UPS protection, configuration, and user setup.</li></ul>
+<h2>Equipment-only pricing is not an installation quote</h2>
+<p>A box of cameras does not account for coverage gaps, cable pathways, power, storage, weatherproofing, or whether a face and license plate will be useful at the required distance. Compare proposals by scope and expected result, not camera count alone.</p>
+<h2>Local recording changes the long-term cost</h2>
+<p>UniFi Protect records locally and avoids the typical per-camera cloud-storage subscription. The upfront recorder and storage cost should be compared with years of monthly fees, as well as the desired retention period.</p>
+<p>See our <a href="/services/security-cameras">home and business security-camera installation service</a> or send the property, important views, and existing equipment for a tailored quote.</p>
+''',
+    },
+    {
+        "slug": "custom-home-low-voltage-prewire-checklist",
+        "date": "2026-08-30",
+        "title": "The Custom-Home Low-Voltage Pre-Wire Checklist",
+        "description": "A builder-ready checklist for Ethernet, WiFi, cameras, fiber, conduit, gates, outdoor living, racks, power, testing, and documentation before drywall.",
+        "image": "/assets/images/projects/jack-install-prep.webp",
+        "image_alt": "Installer preparing equipment during a low-voltage project",
+        "category": "Builder checklist",
+        "body": r'''
+<p>Low-voltage planning should happen before insulation and drywall, while cable routes and framing are visible. Use this checklist during plan review and the pre-wire walk.</p>
+<h2>Service entrance and central rack</h2>
+<ul><li>Confirm internet and utility entry locations.</li><li>Select a rack location with wall space, ventilation, service access, and adequate power.</li><li>Plan patch panels, gateway, PoE switches, recorder, storage, and UPS capacity.</li><li>Add conduit from the service entrance and toward accessible attic or crawlspace areas.</li></ul>
+<h2>WiFi and wired devices</h2>
+<ul><li>Place ceiling access points from a coverage plan.</li><li>Wire offices, media areas, televisions, gaming locations, and fixed equipment.</li><li>Consider two or more drops at important work and entertainment locations.</li><li>Include garages, patios, pools, outdoor kitchens, and guest spaces.</li></ul>
+<h2>Security and property systems</h2>
+<ul><li>Plan camera views for entrances, driveways, yards, gates, garages, and equipment areas.</li><li>Pre-wire doorbells, intercoms, access control, and gate locations.</li><li>Plan fiber or conduit to detached buildings and long exterior pathways.</li></ul>
+<h2>Closeout requirements</h2>
+<ul><li>Protect and label every cable during construction.</li><li>Photograph routes before drywall.</li><li>Terminate, test, and document completed runs.</li><li>Allow for final WiFi tuning and owner orientation after the home is furnished.</li></ul>
+<p>Our <a href="/builders/custom-home-low-voltage-prewire">custom-home pre-wire service</a> gives Northern Colorado builders one partner for plan review, rough-in, trim-out, network installation, cameras, testing, and handoff.</p>
+''',
+    },
+    {
+        "slug": "wifi-access-point-placement-before-drywall",
+        "date": "2026-09-06",
+        "title": "Where Should WiFi Access Points Go Before Drywall?",
+        "description": "How to place wired WiFi access points in a new home before drywall, including floor plans, building materials, ceiling locations, outdoor spaces, and coverage testing.",
+        "image": "/assets/images/actual/ceiling-ap.webp",
+        "image_alt": "Ceiling-mounted WiFi access point in a professionally designed network",
+        "category": "New-construction WiFi",
+        "body": r'''
+<p>Access-point locations should be chosen from the finished floor plan, not simply spaced at equal distances or placed wherever the cable installer has easy access. Walls, floors, stone, metal, ductwork, cabinetry, ceiling height, and room use all change coverage.</p>
+<h2>Start with where people and devices will be</h2>
+<p>Prioritize offices, bedrooms, living spaces, media rooms, garages, patios, pools, and other areas where reliable service matters. Then account for device density and the construction between those spaces and the proposed access point.</p>
+<h2>Ceiling placement is usually cleaner and more predictable</h2>
+<p>Many professional access points are designed for ceiling or high-wall mounting. Avoid hiding them in metal cabinets, mechanical rooms, or crowded utility closets. A visually discreet location is useful only if it still serves the intended coverage area.</p>
+<h2>Plan wired backhaul and switch capacity</h2>
+<p>Each access point should have a home-run Ethernet cable to the network location. Verify cable category, route length, PoE requirements, and whether the planned switch supports the access point’s speed.</p>
+<h2>Include outdoor and detached areas early</h2>
+<p>Exterior living areas may need outdoor-rated access points. Detached garages, shops, and gates may need fiber, conduit, or a point-to-point bridge before local WiFi can be added.</p>
+<p>Berthoud WiFi reviews access-point placement as part of <a href="/builders/custom-home-low-voltage-prewire">custom-home technology planning</a> and completes final tuning after the home is occupied.</p>
+''',
+    },
+    {
+        "slug": "prewire-new-home-security-cameras",
+        "date": "2026-09-13",
+        "title": "How to Pre-Wire a New Home for Security Cameras",
+        "description": "Plan PoE security camera cabling before drywall, including driveway, entry, gate, garage, yard, recorder, lighting, mounting, and future camera locations.",
+        "image": "/assets/images/projects/new-construction-ap.webp",
+        "image_alt": "Low-voltage location prepared during new-home construction",
+        "category": "Camera pre-wire",
+        "body": r'''
+<p>Camera pre-wire is most effective when it begins with the views the homeowner will need, not a fixed number of generic soffit locations. A camera should either identify, observe, or provide context for a specific area.</p>
+<h2>Map the important events</h2>
+<p>Walk through arrivals, packages, vehicles, visitors, backyard access, garages, gates, equipment, and detached structures. Decide where identification matters and where a wider overview is enough.</p>
+<h2>Coordinate mounting with exterior finishes</h2>
+<p>Stone, stucco, siding, soffits, lighting, gutters, rooflines, and landscaping affect the final field of view and service access. Cable locations should leave room for a proper mount and weather-protected termination.</p>
+<h2>Run home-run Cat6 to the network location</h2>
+<p>PoE camera cabling should terminate at the planned rack or recorder location. Confirm PoE switch capacity, UPS protection, ventilation, recorder storage, and an internet path for remote viewing.</p>
+<h2>Plan for gates and detached buildings</h2>
+<p>Long distances may need fiber, a wireless bridge, local power, and a remote PoE switch. Conduit installed during site work can preserve options for future cameras, intercoms, and access control.</p>
+<h2>Photograph and label before drywall</h2>
+<p>Document each route and leave clear labels at both ends. Spare cable or conduit at likely future locations can be a small investment compared with reopening finished walls.</p>
+<p>Berthoud WiFi combines <a href="/services/security-cameras">camera installation</a> with <a href="/builders/custom-home-low-voltage-prewire">builder pre-wire coordination</a> so the network, storage, and property links are planned together.</p>
+''',
+    },
+    {
+        "slug": "electrician-or-low-voltage-installer-home-ethernet",
+        "date": "2026-09-20",
+        "title": "Electrician or Low-Voltage Installer: Who Should Run Home Ethernet?",
+        "description": "Compare electricians and low-voltage network installers for home Ethernet, Cat6, access points, cameras, patch panels, testing, racks, and new-construction pre-wire.",
+        "image": "/assets/images/projects/jack-rack-install.webp",
+        "image_alt": "Low-voltage network installer working inside a structured rack",
+        "category": "Choosing an installer",
+        "body": r'''
+<p>Some electricians install excellent low-voltage cabling, and some focus primarily on line-voltage power. The title matters less than the scope, experience, testing, and final handoff. Ethernet is not difficult because the voltage is high; it is difficult because routing, termination, performance, and network design all have to be correct.</p>
+<h2>Ask what the installer will deliver</h2>
+<ul><li>Appropriate Cat6 or Cat6A cable and pathways.</li><li>Correct separation from power and respect for bend radius.</li><li>Wall plates, keystones, patch panels, and service loops.</li><li>Labels at both ends of every run.</li><li>Testing results and correction of failed runs.</li><li>A rack and switch plan that supports access points, cameras, and PoE.</li></ul>
+<h2>Network design and cable installation are connected</h2>
+<p>A cable can pass a basic test and still terminate in the wrong place for WiFi coverage, camera identification, or the equipment rack. A network-focused low-voltage installer can coordinate device placement, switching, PoE budgets, internet service, VLANs, and the final configuration.</p>
+<h2>Use the right trade for the right work</h2>
+<p>Electricians remain essential for outlets, dedicated circuits, grounding, and other line-voltage requirements. Low-voltage installers focus on data cabling and network systems. Well-run projects coordinate both trades instead of assuming one scope replaces the other.</p>
+<p>Berthoud WiFi provides <a href="/services/home-ethernet-installation">home Ethernet installation</a>, testing, rack work, WiFi, and camera integration across Northern Colorado.</p>
+''',
+    },
+    {
+        "slug": "outdoor-wifi-patios-pools-large-colorado-properties",
+        "date": "2026-09-27",
+        "title": "Outdoor WiFi for Patios, Pools and Larger Colorado Properties",
+        "description": "Plan reliable outdoor WiFi for patios, pools, acreage, barns, shops, detached garages, gates, venues, and larger Northern Colorado properties.",
+        "image": "/assets/images/projects/outdoor-bridge-install.webp",
+        "image_alt": "Professional outdoor WiFi and wireless bridge installation",
+        "category": "Outdoor WiFi",
+        "body": r'''
+<p>Outdoor WiFi is often treated as an afterthought: place a mesh node by a window and hope the signal reaches the patio. That approach struggles with exterior walls, low-emissivity glass, distance, weather, trees, terrain, and detached structures.</p>
+<h2>Start with the outdoor use area</h2>
+<p>Map where phones, speakers, televisions, cameras, tablets, point-of-sale devices, or work equipment will connect. A pool deck, outdoor kitchen, gate, arena, parking area, and acreage property have different coverage patterns.</p>
+<h2>Choose dependable backhaul</h2>
+<p>Ethernet is preferred when practical. Fiber can serve long or electrically separate pathways. A point-to-point wireless bridge can connect buildings where trenching is not practical and good line of sight is available.</p>
+<h2>Use weather-rated equipment and protected cabling</h2>
+<p>Outdoor access points must be mounted for exposure, water paths, sunlight, wind, temperature, and serviceability. Cable type, penetrations, drip loops, surge considerations, and PoE power are part of the installation.</p>
+<h2>Do not ask one access point to cover everything</h2>
+<p>Large properties may need separate zones for the home, yard, barn, shop, gate, or event area. Sensible power levels and placement create better roaming than a single radio turned up to maximum.</p>
+<h2>Test in the places that matter</h2>
+<p>Final testing should happen at seating, work, parking, gate, and remote-building locations—not only beside the access point. See our <a href="/services/outdoor-wifi">outdoor WiFi installation service</a> for patios, pools, businesses, acreage, and multi-building properties.</p>
+''',
+    },
+])
+
 PRIORITY_META = {
     "comparisons/unifi-vs-orbi.html": (
         "UniFi vs Orbi for Large Homes: Which WiFi System Is Better? | Berthoud WiFi",
@@ -248,6 +419,8 @@ SITEWIDE_CONTACT_HTML = r'''
         <select id="sitewide-service" name="services">
           <option value="">Select a service</option>
           <option>Home WiFi improvements</option>
+          <option>Home Ethernet installation</option>
+          <option>New-construction or builder pre-wire</option>
           <option>UniFi network installation</option>
           <option>Small business infrastructure</option>
           <option>UniFi Protect cameras</option>
@@ -281,6 +454,69 @@ def clean_route(route: str) -> str:
     route = re.sub(r"/index\.html$", "/", route)
     route = re.sub(r"\.html$", "", route)
     return route or "/"
+
+
+def customize_builder_contact(section: BeautifulSoup) -> None:
+    title = section.select_one("#sitewide-contact-title")
+    intro = section.select_one(".sitewide-contact-copy > p")
+    button = section.select_one('button[type="submit"]')
+    if title:
+        title.string = "Send us your custom-home plans."
+    if intro:
+        intro.string = (
+            "Share the project schedule and a secure plan link. You can also reply "
+            "to the branded confirmation email with plan attachments."
+        )
+    if button:
+        button.string = "Send Builder Request"
+
+    service = section.select_one('select[name="services"]')
+    anchor = service.find_parent("div") if service else None
+    if anchor is None:
+        return
+    fields = BeautifulSoup(
+        r'''
+<div class="form-field"><label for="builder-company">Builder or company</label><input id="builder-company" name="company" type="text" autocomplete="organization"></div>
+<div class="form-field"><label for="builder-size">Estimated square footage</label><input id="builder-size" name="project_size" type="text" inputmode="numeric" placeholder="For example, 6,500 sq. ft."></div>
+<div class="form-field"><label for="builder-phase">Current construction phase</label><select id="builder-phase" name="construction_phase"><option value="">Select a phase</option><option>Planning or design</option><option>Permitting</option><option>Foundation or framing</option><option>Ready for low-voltage rough-in</option><option>Insulation or drywall approaching</option><option>Trim-out or finish stage</option><option>Existing home or remodel</option></select></div>
+<div class="form-field"><label for="builder-drywall">Target drywall date</label><input id="builder-drywall" name="drywall_date" type="date"></div>
+<div class="form-field full"><label for="builder-plans">Secure floor-plan link</label><input id="builder-plans" name="plans_link" type="url" inputmode="url" placeholder="Google Drive, Dropbox, OneDrive, or project portal"><small>Optional. You may also reply to your confirmation email with attachments.</small></div>
+''',
+        "html.parser",
+    )
+    for node in list(fields.contents):
+        anchor.insert_before(node)
+
+
+def ensure_growth_navigation(soup: BeautifulSoup) -> None:
+    dropdown = soup.select_one(".nav-dropdown")
+    if dropdown and not dropdown.select_one('a[href="/services/home-ethernet-installation"]'):
+        first = dropdown.find("a")
+        ethernet = soup.new_tag("a", href="/services/home-ethernet-installation")
+        ethernet.string = "Home Ethernet"
+        if first:
+            first.insert_after(ethernet)
+        else:
+            dropdown.append(ethernet)
+    if dropdown and not dropdown.select_one('a[href="/builders/custom-home-low-voltage-prewire"]'):
+        builder = soup.new_tag("a", href="/builders/custom-home-low-voltage-prewire")
+        builder.string = "Custom Home Pre-Wire"
+        dropdown.append(builder)
+
+    footer_services = None
+    for block in soup.select(".footer-links"):
+        heading = block.find("strong")
+        if heading and heading.get_text(" ", strip=True) == "Services":
+            footer_services = block
+            break
+    if footer_services and not footer_services.select_one('a[href="/services/home-ethernet-installation"]'):
+        link = soup.new_tag("a", href="/services/home-ethernet-installation")
+        link.string = "Home Ethernet"
+        footer_services.append(link)
+    if footer_services and not footer_services.select_one('a[href="/builders/custom-home-low-voltage-prewire"]'):
+        link = soup.new_tag("a", href="/builders/custom-home-low-voltage-prewire")
+        link.string = "Builder Pre-Wire"
+        footer_services.append(link)
 
 
 def clean_url(value: str) -> str:
@@ -351,9 +587,14 @@ def ensure_contact_experience(soup: BeautifulSoup, rel: str) -> None:
     for duplicate in list(soup.select(".sitewide-contact")):
         duplicate.decompose()
 
+    for existing in soup.select('[id="contact"]'):
+        existing["id"] = "project-cta"
+
     has_form = rel == "contact.html"
     if rel not in {"contact.html", "thank-you.html"}:
         section = BeautifulSoup(SITEWIDE_CONTACT_HTML, "html.parser").find("section")
+        if rel == "builders/custom-home-low-voltage-prewire.html":
+            customize_builder_contact(section)
         footer = soup.select_one(".site-footer")
         if footer:
             footer.insert_before(section)
@@ -404,6 +645,7 @@ def normalize_html(path: Path) -> None:
         set_meta(soup, *PRIORITY_META[rel])
 
     ensure_contact_experience(soup, rel)
+    ensure_growth_navigation(soup)
     set_thank_you_indexing(soup, rel)
 
     canonical_url = SITE_URL + route_for_file(path)
@@ -517,7 +759,16 @@ def update_sitemap(published: list[dict]) -> None:
         if rel == "thank-you.html":
             continue
         route = route_for_file(path)
-        lastmod = post_dates.get(rel, BASELINE_LASTMOD)
+        page_dates = {
+            "services/home-ethernet-installation.html": "2026-08-08",
+            "builders/custom-home-low-voltage-prewire.html": "2026-08-08",
+            "services/outdoor-wifi.html": "2026-08-08",
+            "services/security-cameras.html": "2026-08-08",
+            "cities/timnath.html": "2026-08-08",
+            "cities/windsor.html": "2026-08-08",
+            "cities/johnstown.html": "2026-08-08",
+        }
+        lastmod = post_dates.get(rel, page_dates.get(rel, BASELINE_LASTMOD))
         urls.append((route, lastmod))
 
     unique = {}
@@ -529,6 +780,25 @@ def update_sitemap(published: list[dict]) -> None:
         lines.append(f"  <url><loc>{SITE_URL}{route}</loc><lastmod>{unique[route]}</lastmod></url>")
     lines.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def ensure_security_headers() -> None:
+    """Keep Turnstile allowed after the legacy refresh rewrites _headers."""
+    (ROOT / "_headers").write_text(
+        "/*\n"
+        "  X-Content-Type-Options: nosniff\n"
+        "  Referrer-Policy: strict-origin-when-cross-origin\n"
+        "  Permissions-Policy: geolocation=(), microphone=(), camera=()\n"
+        "  X-Frame-Options: SAMEORIGIN\n"
+        "  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' "
+        "'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com "
+        "https://challenges.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com; "
+        "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; "
+        "frame-src https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; "
+        "form-action 'self' mailto:;\n",
+        encoding="utf-8",
+    )
 
 
 def main() -> None:
@@ -545,6 +815,7 @@ def main() -> None:
         normalize_html(path)
 
     update_sitemap(published)
+    ensure_security_headers()
 
 
 if __name__ == "__main__":
