@@ -7,6 +7,7 @@ on:
       - "scripts/site_refresh.py"
       - "scripts/site_refresh_fix.py"
       - "scripts/seo_growth.py"
+      - "scripts/high_intent_growth.py"
       - "assets/js/site.js"
       - "assets/js/contact-form.js"
       - ".github/workflows/site-refresh.yml"
@@ -38,6 +39,7 @@ jobs:
         run: |
           python scripts/site_refresh.py
           python scripts/site_refresh_fix.py
+          python scripts/high_intent_growth.py
           python scripts/seo_growth.py
 
       - name: Commit generated site updates
