@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 HERO_IMAGE = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82"
-BRAND_CSS = "/assets/css/brand-refresh.css?v=19"
+BRAND_CSS = "/assets/css/brand-refresh.css?v=20"
 
 COPY_FIXES = {
     "View All Solutions": "View all solutions",
@@ -67,51 +67,63 @@ CSS_OVERRIDES = r'''
   .thank-you-next{grid-template-columns:1fr}
 }
 
-/* v19 professional navigation spacing */
-@media(min-width:1081px){
+/* v20 professional navigation: readable, balanced, and intentionally spaced. */
+@media(min-width:1181px){
   .site-header .container.nav{
-    width:min(1440px,calc(100% - 64px));
-    max-width:1440px;
-    min-height:80px;
-    gap:clamp(32px,4vw,68px);
+    width:min(1480px,calc(100% - 48px));
+    max-width:1480px;
+    min-height:88px;
+    gap:clamp(28px,3vw,54px);
   }
   .site-header .brand{
-    gap:12px;
+    gap:13px;
   }
   .site-header .brand img{
-    width:44px;
-    height:44px;
-    flex-basis:44px;
+    width:48px;
+    height:48px;
+    flex-basis:48px;
   }
   .site-header .brand span{
-    font-size:1.08rem;
-    font-weight:600;
-    letter-spacing:-.015em;
+    font-size:1.12rem;
+    font-weight:650;
+    letter-spacing:-.02em;
   }
   .site-header .nav-links{
-    gap:clamp(15px,1.45vw,24px);
+    flex:1;
+    gap:clamp(17px,1.55vw,27px);
   }
   .site-header .nav-links > a,
   .site-header .nav-links > .nav-item > button{
-    min-height:44px;
-    font-size:.92rem;
-    font-weight:600;
-    letter-spacing:-.005em;
+    min-height:48px;
+    font-size:.98rem;
+    font-weight:650;
+    letter-spacing:-.01em;
   }
   .site-header .nav-phone{
-    margin-left:4px;
-    padding-left:22px!important;
-    border-left:1px solid var(--border);
+    min-height:46px;
+    margin-left:3px;
+    padding:0 15px!important;
+    border:1px solid var(--border);
+    border-radius:7px;
+    background:var(--bg-tint);
   }
   .site-header .nav-links .btn{
-    min-height:44px;
-    padding:12px 20px;
-    margin-left:-2px;
-    font-weight:600;
+    min-height:46px;
+    padding:13px 21px;
+    margin-left:0;
+    font-weight:650;
   }
 }
 
-@media(max-width:1080px){
+@media(min-width:1181px) and (max-width:1320px){
+  .site-header .container.nav{gap:24px}
+  .site-header .nav-links{gap:16px}
+  .site-header .nav-links > a,
+  .site-header .nav-links > .nav-item > button{font-size:.93rem}
+  .site-header .nav-phone{padding-inline:12px!important}
+}
+
+@media(max-width:1180px){
   .site-header .container.nav{
     min-height:72px;
   }
@@ -128,7 +140,71 @@ CSS_OVERRIDES = r'''
     margin-left:0;
     padding-left:10px!important;
     border-left:0;
+    background:transparent;
   }
+  .site-header .menu-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:10px 15px;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid var(--border);
+    font-weight:650;
+  }
+  .site-header .nav-links{
+    display:none;
+    position:absolute;
+    top:78px;
+    left:20px;
+    right:20px;
+    flex-direction:column;
+    align-items:stretch;
+    gap:2px;
+    padding:14px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    box-shadow:0 22px 55px rgba(22,35,59,.16);
+  }
+  .site-header .nav-links.is-open,
+  .site-header .nav-links.open{display:flex}
+  .site-header .nav-links > a,
+  .site-header .nav-links > .nav-item > button{
+    width:100%;
+    min-height:46px;
+    justify-content:flex-start;
+    padding:12px 13px;
+    font-size:1rem;
+    font-weight:600;
+  }
+  .site-header .nav-links .btn{
+    width:100%;
+    max-width:none;
+    justify-content:center;
+    margin-top:8px;
+  }
+  .nav-item{
+    display:block;
+    padding-bottom:0;
+    margin-bottom:0;
+  }
+  .nav-dropdown-toggle::after{margin-left:auto}
+  .nav-dropdown{
+    position:static;
+    transform:none;
+    min-width:0;
+    margin:0 0 6px 10px;
+    padding:4px;
+    background:var(--bg-tint);
+    border:0;
+    border-radius:8px;
+    box-shadow:none;
+  }
+  .nav-dropdown::before{display:none}
+  .nav-item:hover .nav-dropdown{display:none}
+  .nav-item.is-open .nav-dropdown{display:grid}
 }
 
 @media(max-width:520px){
@@ -290,7 +366,7 @@ def fix_css() -> None:
     text = path.read_text(encoding="utf-8")
     text = re.sub(
         r"/\* Berthoud WiFi v\d+ design system:",
-        "/* Berthoud WiFi v19 design system:",
+        "/* Berthoud WiFi v20 design system:",
         text,
         count=1,
     )
