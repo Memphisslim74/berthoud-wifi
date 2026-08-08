@@ -1,8 +1,8 @@
-// Force the current visual overrides to use the latest cache key on every page.
+// Keep every page on the same visual release, including after an edge-cache hit.
 document
   .querySelectorAll('link[rel="stylesheet"][href^="/assets/css/brand-refresh.css"]')
   .forEach((link) => {
-    link.href = "/assets/css/brand-refresh.css?v=18";
+    link.href = "/assets/css/brand-refresh.css?v=20";
   });
 
 function trackEvent(name, parameters = {}) {
