@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[1]
 HERO_IMAGE = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82"
 BRAND_CSS = "/assets/css/brand-refresh.css?v=20"
+SITE_JS = "/assets/js/site.js?v=20"
 
 COPY_FIXES = {
     "View All Solutions": "View all solutions",
@@ -306,6 +307,15 @@ def fix_html(path: Path) -> None:
             duplicate.decompose()
     else:
         soup.head.append(soup.new_tag("link", rel="stylesheet", href=BRAND_CSS))
+
+    site_scripts = soup.find_all(
+        "script",
+        src=lambda value: value and value.startswith("/assets/js/site.js"),
+    )
+    if site_scripts:
+        site_scripts[0]["src"] = SITE_JS
+        for duplicate in site_scripts[1:]:
+            duplicate.decompose()
 
     gtag_loaders = soup.find_all(
         "script", src=lambda value: value and "googletagmanager.com/gtag/js" in value
