@@ -1065,6 +1065,28 @@ body{
   color:var(--muted);
   font-size:.92rem;
 }
+.section-heading{
+  max-width:780px;
+  margin-bottom:28px;
+}
+.owner-photo-grid .project-photo-card img{
+  height:320px;
+}
+.owner-photo-steve{object-position:center 52%}
+.owner-photo-jack{object-position:center 68%}
+.owner-photo-rack{object-position:center 45%}
+.installation-photo-grid .project-photo-card img{
+  height:280px;
+}
+.installation-photo-work{object-position:center 48%}
+.installation-photo-rack{object-position:center 38%}
+.installation-photo-outdoor{object-position:center 64%}
+.installation-photo-prep{object-position:center 34%}
+.installation-photo-wooded{object-position:center 62%}
+.installation-photo-completed{object-position:center 45%}
+.installation-photo-property{object-position:center 58%}
+.installation-photo-construction{object-position:center 52%}
+.installation-photo-card-wide{grid-column:span 2}
 .local-photo{
   width:100%;
   height:100%;
@@ -1078,7 +1100,10 @@ body{
 }
 @media(max-width:620px){
   .project-photo-grid{grid-template-columns:1fr}
-  .project-photo-card img{height:220px}
+  .project-photo-card img,
+  .owner-photo-grid .project-photo-card img,
+  .installation-photo-grid .project-photo-card img{height:260px}
+  .installation-photo-card-wide{grid-column:auto}
 }
 
 
