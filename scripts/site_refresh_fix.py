@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 HERO_IMAGE = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82"
-BRAND_CSS = "/assets/css/brand-refresh.css?v=18"
+BRAND_CSS = "/assets/css/brand-refresh.css?v=19"
 
 COPY_FIXES = {
     "View All Solutions": "View all solutions",
@@ -65,6 +65,84 @@ CSS_OVERRIDES = r'''
   .sitewide-contact{padding:46px 0}
   .sitewide-contact-grid{grid-template-columns:1fr;gap:28px}
   .thank-you-next{grid-template-columns:1fr}
+}
+
+/* v19 professional navigation spacing */
+@media(min-width:1081px){
+  .site-header .container.nav{
+    width:min(1440px,calc(100% - 64px));
+    max-width:1440px;
+    min-height:80px;
+    gap:clamp(32px,4vw,68px);
+  }
+  .site-header .brand{
+    gap:12px;
+  }
+  .site-header .brand img{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+  }
+  .site-header .brand span{
+    font-size:1.08rem;
+    font-weight:600;
+    letter-spacing:-.015em;
+  }
+  .site-header .nav-links{
+    gap:clamp(15px,1.45vw,24px);
+  }
+  .site-header .nav-links > a,
+  .site-header .nav-links > .nav-item > button{
+    min-height:44px;
+    font-size:.92rem;
+    font-weight:600;
+    letter-spacing:-.005em;
+  }
+  .site-header .nav-phone{
+    margin-left:4px;
+    padding-left:22px!important;
+    border-left:1px solid var(--border);
+  }
+  .site-header .nav-links .btn{
+    min-height:44px;
+    padding:12px 20px;
+    margin-left:-2px;
+    font-weight:600;
+  }
+}
+
+@media(max-width:1080px){
+  .site-header .container.nav{
+    min-height:72px;
+  }
+  .site-header .brand img{
+    width:40px;
+    height:40px;
+    flex-basis:40px;
+  }
+  .site-header .brand span{
+    font-size:1.02rem;
+    font-weight:600;
+  }
+  .site-header .nav-phone{
+    margin-left:0;
+    padding-left:10px!important;
+    border-left:0;
+  }
+}
+
+@media(max-width:520px){
+  .site-header .container.nav{
+    min-height:64px;
+  }
+  .site-header .brand img{
+    width:38px;
+    height:38px;
+    flex-basis:38px;
+  }
+  .site-header .nav-links{
+    top:68px;
+  }
 }
 '''
 
@@ -210,9 +288,11 @@ def fix_css() -> None:
     if not path.exists():
         return
     text = path.read_text(encoding="utf-8")
-    text = text.replace(
-        "/* Berthoud WiFi v17 design system:",
-        "/* Berthoud WiFi v18 design system:",
+    text = re.sub(
+        r"/\* Berthoud WiFi v\d+ design system:",
+        "/* Berthoud WiFi v19 design system:",
+        text,
+        count=1,
     )
     if CSS_MARKER in text:
         text = text.split(CSS_MARKER, 1)[0].rstrip()
