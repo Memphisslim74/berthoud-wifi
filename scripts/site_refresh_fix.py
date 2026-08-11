@@ -9,8 +9,9 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 HERO_IMAGE = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82"
-BRAND_CSS = "/assets/css/brand-refresh.css?v=20"
-SITE_JS = "/assets/js/site.js?v=20"
+BRAND_CSS = "/assets/css/brand-refresh.css?v=21"
+SITE_JS = "/assets/js/site.js?v=21"
+LOGO_PATH = "/assets/images/berthoud-wifi-logo.webp?v=21"
 
 COPY_FIXES = {
     "View All Solutions": "View all solutions",
@@ -68,35 +69,39 @@ CSS_OVERRIDES = r'''
   .thank-you-next{grid-template-columns:1fr}
 }
 
-/* v20 professional navigation: readable, balanced, and intentionally spaced. */
-@media(min-width:1181px){
+/* v21 professional navigation and approved full-detail logo. */
+@media(min-width:1441px){
   .site-header .container.nav{
-    width:min(1480px,calc(100% - 48px));
-    max-width:1480px;
-    min-height:88px;
-    gap:clamp(28px,3vw,54px);
+    width:min(1540px,calc(100% - 44px));
+    max-width:1540px;
+    min-height:148px;
+    gap:clamp(22px,2.2vw,38px);
   }
   .site-header .brand{
-    gap:13px;
+    gap:16px;
+    flex:0 0 auto;
   }
   .site-header .brand img{
-    width:48px;
-    height:48px;
-    flex-basis:48px;
+    width:128px;
+    height:128px;
+    flex-basis:128px;
+    object-fit:contain;
+    border-radius:0;
   }
   .site-header .brand span{
-    font-size:1.12rem;
+    font-size:1.14rem;
     font-weight:650;
     letter-spacing:-.02em;
   }
   .site-header .nav-links{
     flex:1;
-    gap:clamp(17px,1.55vw,27px);
+    justify-content:flex-end;
+    gap:clamp(13px,1.15vw,21px);
   }
   .site-header .nav-links > a,
   .site-header .nav-links > .nav-item > button{
     min-height:48px;
-    font-size:.98rem;
+    font-size:.94rem;
     font-weight:650;
     letter-spacing:-.01em;
   }
@@ -116,22 +121,16 @@ CSS_OVERRIDES = r'''
   }
 }
 
-@media(min-width:1181px) and (max-width:1320px){
-  .site-header .container.nav{gap:24px}
-  .site-header .nav-links{gap:16px}
-  .site-header .nav-links > a,
-  .site-header .nav-links > .nav-item > button{font-size:.93rem}
-  .site-header .nav-phone{padding-inline:12px!important}
-}
-
-@media(max-width:1180px){
+@media(max-width:1440px){
   .site-header .container.nav{
-    min-height:72px;
+    min-height:102px;
   }
   .site-header .brand img{
-    width:40px;
-    height:40px;
-    flex-basis:40px;
+    width:88px;
+    height:88px;
+    flex-basis:88px;
+    object-fit:contain;
+    border-radius:0;
   }
   .site-header .brand span{
     font-size:1.02rem;
@@ -157,7 +156,7 @@ CSS_OVERRIDES = r'''
   .site-header .nav-links{
     display:none;
     position:absolute;
-    top:78px;
+    top:108px;
     left:20px;
     right:20px;
     flex-direction:column;
@@ -210,17 +209,28 @@ CSS_OVERRIDES = r'''
 
 @media(max-width:520px){
   .site-header .container.nav{
-    min-height:64px;
+    min-height:84px;
   }
   .site-header .brand img{
-    width:38px;
-    height:38px;
-    flex-basis:38px;
+    width:70px;
+    height:70px;
+    flex-basis:70px;
   }
+  .site-header .brand span{font-size:1rem}
   .site-header .nav-links{
-    top:68px;
+    top:90px;
   }
 }
+
+.cyber-outcome-grid,.cyber-service-grid,.cyber-proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.cyber-outcome,.cyber-service,.cyber-proof{padding:24px;background:#fff;border:1px solid var(--border);border-radius:10px}
+.cyber-outcome strong{display:block;margin-bottom:8px;color:var(--ink);font-size:1.08rem}
+.cyber-service h3,.cyber-proof h3{margin-top:0}
+.cyber-step{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;align-items:start;padding:20px 0;border-bottom:1px solid var(--border)}
+.cyber-step:last-child{border-bottom:0}
+.cyber-step-number{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(25,88,196,.09);color:var(--accent-blue);font-weight:700}
+.cyber-boundary{padding:20px;border-left:4px solid var(--accent-blue);background:var(--bg-tint);border-radius:0 10px 10px 0}
+@media(max-width:900px){.cyber-outcome-grid,.cyber-service-grid,.cyber-proof-grid{grid-template-columns:1fr}}
 '''
 
 
@@ -253,10 +263,80 @@ def dedupe_jsonld(soup: BeautifulSoup) -> None:
             seen.add(key)
 
 
+def ensure_consulting_navigation(soup: BeautifulSoup) -> None:
+    for brand in soup.select(".site-header .brand img, .site-footer .brand img"):
+        brand["src"] = LOGO_PATH
+        brand["alt"] = "Berthoud WiFi"
+        brand["width"] = "768"
+        brand["height"] = "768"
+
+    nav = soup.select_one(".site-header .nav-links")
+    existing_top_level = nav.find(
+        "a",
+        href=lambda value: value and value.startswith("/cybersecurity-consulting"),
+        recursive=False,
+    ) if nav else None
+    if nav and not existing_top_level:
+        consulting = soup.new_tag("a", href="/cybersecurity-consulting/")
+        consulting.string = "Cyber Consulting"
+        about = nav.find("a", href=lambda value: value and value.startswith("/about"))
+        if about:
+            about.insert_before(consulting)
+        else:
+            phone = nav.select_one(".nav-phone")
+            phone.insert_before(consulting) if phone else nav.append(consulting)
+
+    for dropdown in soup.select(".nav-dropdown"):
+        if dropdown.select_one('a[href^="/cybersecurity-consulting"]'):
+            continue
+        link = soup.new_tag("a", href="/cybersecurity-consulting/")
+        link.string = "Cybersecurity Consulting"
+        dropdown.append(link)
+
+    for footer in soup.select(".site-footer"):
+        if footer.select_one('a[href^="/cybersecurity-consulting"]'):
+            continue
+        columns = footer.select(".footer-links")
+        target = columns[0] if columns else None
+        if target:
+            link = soup.new_tag("a", href="/cybersecurity-consulting/")
+            link.string = "Cybersecurity Consulting"
+            target.append(link)
+
+
+def ensure_consulting_form_option(soup: BeautifulSoup) -> None:
+    for select in soup.select('select[name="services"]'):
+        if any("Cybersecurity" in option.get_text() for option in select.find_all("option")):
+            continue
+        option = soup.new_tag("option")
+        option.string = "Cybersecurity risk consulting"
+        first = select.find("option")
+        first.insert_after(option) if first else select.append(option)
+
+    for picker in soup.select(".service-picker .check-grid"):
+        if picker.select_one('input[value="Cybersecurity risk consulting"]'):
+            continue
+        label = soup.new_tag("label")
+        checkbox = soup.new_tag(
+            "input",
+            attrs={
+                "name": "services",
+                "type": "checkbox",
+                "value": "Cybersecurity risk consulting",
+            },
+        )
+        label.append(checkbox)
+        label.append(" Cybersecurity risk consulting")
+        picker.insert(0, label)
+
+
 def fix_html(path: Path) -> None:
     soup = BeautifulSoup(path.read_text(encoding="utf-8"), "lxml")
     if not soup.head:
         return
+
+    ensure_consulting_navigation(soup)
+    ensure_consulting_form_option(soup)
 
     icon = soup.head.find(
         "link",
@@ -376,7 +456,7 @@ def fix_css() -> None:
     text = path.read_text(encoding="utf-8")
     text = re.sub(
         r"/\* Berthoud WiFi v\d+ design system:",
-        "/* Berthoud WiFi v20 design system:",
+        "/* Berthoud WiFi v21 design system:",
         text,
         count=1,
     )
@@ -415,7 +495,8 @@ def main() -> None:
     fix_css()
     fix_headers()
     for html in ROOT.rglob("*.html"):
-        if any(part.startswith(".") for part in html.relative_to(ROOT).parts):
+        parts = html.relative_to(ROOT).parts
+        if any(part in {"dist", "node_modules"} or part.startswith(".") for part in parts):
             continue
         fix_html(html)
 

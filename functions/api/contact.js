@@ -54,7 +54,7 @@ const emailShell = ({ eyebrow, title, intro, content, footerNote }) => `
             <td style="background:linear-gradient(135deg,#07111e,#0e2a48);padding:28px 32px;text-align:center">
               <img src="https://berthoudwifi.com/assets/images/berthoud-wifi-logo.png" width="110" alt="Berthoud WiFi" style="display:block;margin:0 auto 12px;border-radius:50%">
               <div style="font-size:24px;line-height:1.2;font-weight:800;color:#ffffff;letter-spacing:.4px">BERTHOUD WIFI</div>
-              <div style="margin-top:6px;color:#65c7ff;font-size:13px;font-weight:700;letter-spacing:.9px">UNIFI-FIRST SOLUTIONS • NORTHERN COLORADO</div>
+              <div style="margin-top:6px;color:#65c7ff;font-size:13px;font-weight:700;letter-spacing:.9px">INFRASTRUCTURE • CYBER RISK • PRACTICAL SUPPORT</div>
             </td>
           </tr>
           <tr>
@@ -166,7 +166,7 @@ export async function onRequestPost(context) {
       ${infoRow("Phone", phone ? `<a href="tel:${escapeHtml(phone)}" style="color:#0875d2;text-decoration:none">${escapeHtml(phone)}</a>` : "Not provided")}
       ${infoRow("City", escapeHtml(city || "Not provided"))}
       ${infoRow("Property", escapeHtml(propertyType || "Not provided"))}
-      ${company ? infoRow("Builder / company", escapeHtml(company)) : ""}
+      ${company ? infoRow("Organization / company", escapeHtml(company)) : ""}
       ${projectSize ? infoRow("Project size", escapeHtml(projectSize)) : ""}
       ${constructionPhase ? infoRow("Construction phase", escapeHtml(constructionPhase)) : ""}
       ${drywallDate ? infoRow("Target drywall", escapeHtml(drywallDate)) : ""}
@@ -195,7 +195,7 @@ export async function onRequestPost(context) {
       ${infoRow("Phone", escapeHtml(phone || "Not provided"))}
       ${infoRow("City", escapeHtml(city || "Not provided"))}
       ${infoRow("Property", escapeHtml(propertyType || "Not provided"))}
-      ${company ? infoRow("Builder / company", escapeHtml(company)) : ""}
+      ${company ? infoRow("Organization / company", escapeHtml(company)) : ""}
       ${projectSize ? infoRow("Project size", escapeHtml(projectSize)) : ""}
       ${constructionPhase ? infoRow("Construction phase", escapeHtml(constructionPhase)) : ""}
       ${drywallDate ? infoRow("Target drywall", escapeHtml(drywallDate)) : ""}
@@ -213,7 +213,7 @@ export async function onRequestPost(context) {
     <div style="margin-top:22px;border:1px solid #dce7f0;border-radius:14px;padding:18px">
       <div style="font-size:12px;font-weight:800;color:#1597ff;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">What happens next</div>
       <ol style="margin:0;padding-left:20px;color:#24384d;font-size:15px;line-height:1.7">
-        <li>We review the property, problem areas, and services you selected.</li>
+        <li>We review the organization or property, priorities, and services you selected.</li>
         <li>We follow up by email or phone if we need a few more details or should arrange a walkthrough.</li>
         <li>We outline the recommended next steps and a project-specific estimate.</li>
       </ol>

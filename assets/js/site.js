@@ -2,7 +2,7 @@
 document
   .querySelectorAll('link[rel="stylesheet"][href^="/assets/css/brand-refresh.css"]')
   .forEach((link) => {
-    link.href = "/assets/css/brand-refresh.css?v=20";
+    link.href = "/assets/css/brand-refresh.css?v=21";
   });
 
 function trackEvent(name, parameters = {}) {

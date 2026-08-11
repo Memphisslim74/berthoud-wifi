@@ -8,6 +8,9 @@ on:
       - "scripts/site_refresh_fix.py"
       - "scripts/seo_growth.py"
       - "scripts/high_intent_growth.py"
+      - "cybersecurity-consulting/**"
+      - "assets/images/berthoud-wifi-logo.png"
+      - "assets/images/berthoud-wifi-logo.webp"
       - "assets/js/site.js"
       - "assets/js/contact-form.js"
       - ".github/workflows/site-refresh.yml"
@@ -38,9 +41,9 @@ jobs:
       - name: Apply SEO, image, contact, design, and growth updates
         run: |
           python scripts/site_refresh.py
-          python scripts/site_refresh_fix.py
           python scripts/high_intent_growth.py
           python scripts/seo_growth.py
+          python scripts/site_refresh_fix.py
 
       - name: Commit generated site updates
         run: |

@@ -25,16 +25,16 @@ function versionSharedAssets(directory) {
     const html = fs.readFileSync(entryPath, 'utf8');
     const versioned = html
       .replaceAll(
-        'href="/assets/css/brand-refresh.css?v=19"',
-        'href="/assets/css/brand-refresh.css?v=20"',
+        /href="\/assets\/css\/brand-refresh\.css\?v=\d+"/g,
+        'href="/assets/css/brand-refresh.css?v=21"',
       )
-      .replaceAll(
-        'src="/assets/js/site.js"',
-        'src="/assets/js/site.js?v=20"',
+      .replace(
+        /src="\/assets\/js\/site\.js(?:\?v=\d+)?"/g,
+        'src="/assets/js/site.js?v=21"',
       );
     if (versioned !== html) fs.writeFileSync(entryPath, versioned);
   }
 }
 
 versionSharedAssets(dist);
-console.log('Berthoud WiFi site copied to dist with v20 shared assets');
+console.log('Berthoud WiFi site copied to dist with v21 shared assets');
