@@ -767,6 +767,7 @@ def update_sitemap(published: list[dict]) -> None:
             "cities/timnath.html": "2026-08-08",
             "cities/windsor.html": "2026-08-08",
             "cities/johnstown.html": "2026-08-08",
+            "cybersecurity-consulting/index.html": "2026-08-11",
         }
         lastmod = post_dates.get(rel, page_dates.get(rel, BASELINE_LASTMOD))
         urls.append((route, lastmod))

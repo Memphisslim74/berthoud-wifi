@@ -19,7 +19,7 @@ EMAIL = "hello@berthoudwifi.com"
 FACEBOOK = "https://www.facebook.com/profile.php?id=61591527285692"
 LINKEDIN = "https://www.linkedin.com/company/berthoud-wifi/"
 SITE_URL = "https://berthoudwifi.com"
-LOGO_PATH = "/assets/images/berthoud-wifi-logo-flat.png"
+LOGO_PATH = "/assets/images/berthoud-wifi-logo.webp?v=21"
 SOCIAL_IMAGE_PATH = "/assets/images/berthoud-wifi-social-card.png"
 TODAY = date.today().isoformat()
 
@@ -390,8 +390,8 @@ def apply_image_attributes(soup: BeautifulSoup, mapping: dict[str, dict[str, Any
                 img["srcset"] = ", ".join(f"{url} {width}w" for url, width in info["srcset"])
                 img["sizes"] = "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 760px"
         elif src == LOGO_PATH or "logo" in src.lower():
-            img.setdefault("width", "1024")
-            img.setdefault("height", "1024")
+            img.attrs.setdefault("width", "1024")
+            img.attrs.setdefault("height", "1024")
 
         img["decoding"] = "async"
         ancestor_classes = " ".join(" ".join(parent.get("class", [])) for parent in img.parents if isinstance(parent, Tag))
@@ -636,13 +636,22 @@ def main() -> None:
     write_brand_css()
     print("Updating HTML…")
     for html in ROOT.rglob("*.html"):
-        if any(part.startswith(".") for part in html.relative_to(ROOT).parts):
+        parts = html.relative_to(ROOT).parts
+        if any(part in {"dist", "node_modules"} or part.startswith(".") for part in parts):
             continue
         update_html(html, mapping)
     update_headers()
     update_manifest()
     update_sitemap()
-    print(f"Updated {len(list(ROOT.rglob('*.html')))} HTML files and {len(mapping)} image references.")
+    html_count = sum(
+        1
+        for html in ROOT.rglob("*.html")
+        if not any(
+            part in {"dist", "node_modules"} or part.startswith(".")
+            for part in html.relative_to(ROOT).parts
+        )
+    )
+    print(f"Updated {html_count} HTML files and {len(mapping)} image references.")
 
 
 if __name__ == "__main__":
