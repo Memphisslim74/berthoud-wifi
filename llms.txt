@@ -1,0 +1,35 @@
+# Berthoud WiFi
+
+> Berthoud WiFi designs and installs professional UniFi WiFi, networking, security cameras, access control, fiber, structured cabling, and building-to-building connectivity for homes, businesses, and larger properties across Northern Colorado.
+
+## Primary pages
+
+- [Home](https://berthoudwifi.com/)
+- [Services](https://berthoudwifi.com/services/)
+- [Solutions](https://berthoudwifi.com/solutions/)
+- [Installation process](https://berthoudwifi.com/installations)
+- [About Berthoud WiFi](https://berthoudwifi.com/about)
+- [Request a quote](https://berthoudwifi.com/contact)
+
+## Popular services
+
+- [Home WiFi improvements](https://berthoudwifi.com/services/home-network-improvements)
+- [Home Ethernet installation](https://berthoudwifi.com/services/home-ethernet-installation)
+- [Small-business infrastructure](https://berthoudwifi.com/services/small-business-infrastructure)
+- [UniFi network installation](https://berthoudwifi.com/services/unifi-network-installation)
+- [UniFi Protect cameras](https://berthoudwifi.com/services/unifi-protect-security)
+- [Fiber and structured cabling](https://berthoudwifi.com/services/fiber-structured-cabling)
+- [Outdoor and rural connectivity](https://berthoudwifi.com/services/outdoor-wifi)
+- [Building-to-building connectivity](https://berthoudwifi.com/services/building-to-building-connectivity)
+- [Custom-home low-voltage pre-wire](https://berthoudwifi.com/builders/custom-home-low-voltage-prewire)
+
+## Resources
+
+- [Guides](https://berthoudwifi.com/guides/)
+- [Equipment guides](https://berthoudwifi.com/equipment/)
+- [Comparisons](https://berthoudwifi.com/comparisons/)
+- [The Connected Front Range](https://berthoudwifi.com/news/)
+
+## Service area
+
+Berthoud WiFi is based in Berthoud, Colorado and serves Berthoud, Loveland, Fort Collins, Longmont, Erie, Boulder, and surrounding Northern Colorado communities.

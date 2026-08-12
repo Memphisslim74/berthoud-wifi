@@ -481,7 +481,9 @@ def update_html(path: Path, mapping: dict[str, dict[str, Any]]) -> None:
 
 
 def write_brand_css() -> None:
-    css = r'''/* Berthoud WiFi v17 design system: editorial, local, and conversion-focused. */
+    css = r'''/* Berthoud WiFi v22 design system: editorial, local, and conversion-focused. */
+@font-face{font-family:Inter;font-style:normal;font-weight:400 600;font-display:swap;src:url("/assets/fonts/inter-latin.woff2") format("woff2")}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:600 700;font-display:swap;src:url("/assets/fonts/fraunces-latin.woff2") format("woff2")}
 :root{
   --ink:#16233B;
   --body-text:#5B6472;
@@ -542,7 +544,7 @@ img{height:auto}
 .faq details{background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:none}
 .faq summary{font-weight:500;color:var(--ink)}
 .cta,.content-cta{background:var(--bg-tint);border:1px solid var(--border);border-radius:10px;color:var(--ink);box-shadow:none}
-.home-hero::before{background:linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.93) 42%,rgba(255,255,255,.52) 72%,rgba(255,255,255,.18) 100%),url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82") center/cover no-repeat}
+.home-hero::before{background:linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.93) 42%,rgba(255,255,255,.52) 72%,rgba(255,255,255,.18) 100%),url("/assets/images/hero-office-v22-1600.webp") center/cover no-repeat}
 .home-hero h1{font-family:Fraunces,Georgia,serif;font-weight:700;color:var(--ink)}
 .home-hero .lead{color:var(--body-text)}
 .home-proof div{background:rgba(255,255,255,.94);border:1px solid var(--border);border-radius:8px;box-shadow:none;backdrop-filter:blur(5px)}
@@ -570,7 +572,7 @@ img{height:auto}
 .footer-social a{color:#DCE3EC;text-decoration:none}
 .footer-social a:hover{color:#fff}
 @media(max-width:1080px){.nav-phone{order:20}.site-header .nav-links .btn{order:21}}
-@media(max-width:700px){.home-hero h1{font-size:clamp(2.45rem,12vw,3.6rem)}.site-footer{padding-top:38px}}
+@media(max-width:700px){.home-hero::before{background-image:linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.93) 42%,rgba(255,255,255,.52) 72%,rgba(255,255,255,.18) 100%),url("/assets/images/hero-office-v22-800.webp")}.home-hero h1{font-size:clamp(2.45rem,12vw,3.6rem)}.site-footer{padding-top:38px}}
 '''
     target = ROOT / "assets" / "css" / "brand-refresh.css"
     target.parent.mkdir(parents=True, exist_ok=True)

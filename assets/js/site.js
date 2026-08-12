@@ -1,10 +1,3 @@
-// Keep every page on the same visual release, including after an edge-cache hit.
-document
-  .querySelectorAll('link[rel="stylesheet"][href^="/assets/css/brand-refresh.css"]')
-  .forEach((link) => {
-    link.href = "/assets/css/brand-refresh.css?v=21";
-  });
-
 function trackEvent(name, parameters = {}) {
   if (typeof window.gtag !== "function") return;
   window.gtag("event", name, {

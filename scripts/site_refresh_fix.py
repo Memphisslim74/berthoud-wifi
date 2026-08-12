@@ -8,9 +8,12 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
-HERO_IMAGE = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82"
-BRAND_CSS = "/assets/css/brand-refresh.css?v=21"
-SITE_JS = "/assets/js/site.js?v=21"
+HERO_IMAGES = (
+    ("/assets/images/hero-office-v22-800.webp", "(max-width: 700px)"),
+    ("/assets/images/hero-office-v22-1600.webp", "(min-width: 701px)"),
+)
+BRAND_CSS = "/assets/css/brand-refresh.css?v=22"
+SITE_JS = "/assets/js/site.js?v=22"
 LOGO_PATH = "/assets/images/berthoud-wifi-logo.webp?v=21"
 
 COPY_FIXES = {
@@ -403,27 +406,28 @@ def fix_html(path: Path) -> None:
     for duplicate in gtag_loaders[1:]:
         duplicate.decompose()
 
+    for link in list(soup.head.find_all("link", href=True)):
+        href = link.get("href", "")
+        if href.startswith("https://fonts.googleapis.com") or href == "https://fonts.gstatic.com":
+            link.decompose()
+        elif href == "https://challenges.cloudflare.com" and "preconnect" in link.get("rel", []):
+            link.decompose()
+
     dedupe_jsonld(soup)
     relative = path.relative_to(ROOT).as_posix()
 
     if relative == "index.html":
-        preload = soup.head.find("link", rel="preload", href=HERO_IMAGE)
-        if preload is None:
-            preload = soup.new_tag("link", rel="preload", href=HERO_IMAGE)
+        for preload in list(soup.head.find_all("link", rel="preload")):
+            href = preload.get("href", "")
+            if "photo-1497366754035" in href or "hero-office-v22" in href:
+                preload.decompose()
+        for href, media in HERO_IMAGES:
+            preload = soup.new_tag("link", rel="preload", href=href)
             preload["as"] = "image"
+            preload["type"] = "image/webp"
+            preload["media"] = media
             preload["fetchpriority"] = "high"
             soup.head.append(preload)
-
-    if relative == "contact.html":
-        preconnect = soup.head.find(
-            "link", rel="preconnect", href="https://challenges.cloudflare.com"
-        )
-        if preconnect is None:
-            soup.head.append(
-                soup.new_tag(
-                    "link", rel="preconnect", href="https://challenges.cloudflare.com"
-                )
-            )
 
     for img in soup.select(".site-header .brand img"):
         img["loading"] = "eager"
@@ -456,7 +460,7 @@ def fix_css() -> None:
     text = path.read_text(encoding="utf-8")
     text = re.sub(
         r"/\* Berthoud WiFi v\d+ design system:",
-        "/* Berthoud WiFi v21 design system:",
+        "/* Berthoud WiFi v22 design system:",
         text,
         count=1,
     )
@@ -473,10 +477,10 @@ def fix_headers() -> None:
     csp = (
         "  Content-Security-Policy: default-src 'self'; "
         "img-src 'self' data: https:; "
-        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "style-src 'self' 'unsafe-inline'; "
         "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com "
         "https://www.google-analytics.com https://challenges.cloudflare.com; "
-        "font-src 'self' data: https://fonts.gstatic.com; "
+        "font-src 'self' data:; "
         "connect-src 'self' https://www.google-analytics.com "
         "https://region1.google-analytics.com; "
         "frame-src https://challenges.cloudflare.com; "

@@ -611,15 +611,6 @@ def ensure_contact_experience(soup: BeautifulSoup, rel: str) -> None:
         for duplicate in scripts[1:]:
             duplicate.decompose()
 
-        preconnect = soup.head.find(
-            "link", rel="preconnect", href="https://challenges.cloudflare.com"
-        )
-        if preconnect is None:
-            soup.head.append(
-                soup.new_tag(
-                    "link", rel="preconnect", href="https://challenges.cloudflare.com"
-                )
-            )
     else:
         for script in scripts:
             script.decompose()
@@ -792,12 +783,29 @@ def ensure_security_headers() -> None:
         "  Permissions-Policy: geolocation=(), microphone=(), camera=()\n"
         "  X-Frame-Options: SAMEORIGIN\n"
         "  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; "
-        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' "
+        "style-src 'self' 'unsafe-inline'; script-src 'self' "
         "'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com "
-        "https://challenges.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com; "
+        "https://challenges.cloudflare.com; font-src 'self' data:; "
         "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; "
         "frame-src https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; "
-        "form-action 'self' mailto:;\n",
+        "form-action 'self' mailto:;\n"
+        "\n"
+        "/\n"
+        "  Link: </assets/css/site.css?v=22>; rel=preload; as=style\n"
+        "\n"
+        "/robots.txt\n"
+        "  Cache-Control: public, max-age=3600\n"
+        "  Content-Type: text/plain; charset=utf-8\n"
+        "\n"
+        "/llms.txt\n"
+        "  Cache-Control: public, max-age=3600\n"
+        "  Content-Type: text/plain; charset=utf-8\n"
+        "\n"
+        "/assets/fonts/*\n"
+        "  Cache-Control: public, max-age=31536000, immutable\n"
+        "\n"
+        "/assets/images/hero-office-v22-*\n"
+        "  Cache-Control: public, max-age=31536000, immutable\n",
         encoding="utf-8",
     )
 

@@ -738,7 +738,7 @@ button:disabled{opacity:.62;cursor:not-allowed}
   inset:0;
   background:
     linear-gradient(90deg,rgba(5,14,24,.96) 0%,rgba(5,14,24,.84) 43%,rgba(5,14,24,.28) 78%,rgba(5,14,24,.12) 100%),
-    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=84") center/cover no-repeat;
+    url("/assets/images/hero-office-v22-1600.webp") center/cover no-repeat;
 }
 .home-hero .container{position:relative;z-index:1}
 .home-hero-copy{max-width:720px;padding:78px 0}
@@ -980,7 +980,7 @@ body{
 .home-hero::before{
   background:
     linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.92) 42%,rgba(255,255,255,.50) 72%,rgba(255,255,255,.18) 100%),
-    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=84") center/cover no-repeat;
+    url("/assets/images/hero-office-v22-1600.webp") center/cover no-repeat;
 }
 .home-hero h1{color:#102033}
 .home-hero .lead{color:#425569}

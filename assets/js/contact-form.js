@@ -174,12 +174,34 @@ forms.forEach((form) => {
     ready: null,
   };
 
-  turnstileState.ready = initializeTurnstile(
-    form,
-    submitButton,
-    statusBox,
-    turnstileState,
-  );
+  const ensureTurnstileReady = () => {
+    if (!turnstileState.ready) {
+      turnstileState.ready = initializeTurnstile(
+        form,
+        submitButton,
+        statusBox,
+        turnstileState,
+      );
+    }
+    return turnstileState.ready;
+  };
+
+  // The form sits below the initial viewport on most pages. Defer its network
+  // requests until the visitor approaches or interacts with it.
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        ensureTurnstileReady();
+      },
+      { rootMargin: "600px 0px" },
+    );
+    observer.observe(form);
+  }
+
+  form.addEventListener("focusin", ensureTurnstileReady, { once: true });
+  form.addEventListener("pointerenter", ensureTurnstileReady, { once: true });
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -191,7 +213,7 @@ forms.forEach((form) => {
       return;
     }
 
-    await turnstileState.ready;
+    await ensureTurnstileReady();
 
     if (turnstileState.failed) {
       statusBox.textContent =
