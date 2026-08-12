@@ -12,9 +12,9 @@ HERO_IMAGES = (
     ("/assets/images/hero-office-v22-800.webp", "(max-width: 700px)"),
     ("/assets/images/hero-office-v22-1600.webp", "(min-width: 701px)"),
 )
-BRAND_CSS = "/assets/css/brand-refresh.css?v=22"
+SITE_CSS = "/assets/css/site.css?v=23"
 SITE_JS = "/assets/js/site.js?v=22"
-LOGO_PATH = "/assets/images/berthoud-wifi-logo.webp?v=21"
+LOGO_PATH = "/assets/images/berthoud-wifi-logo-160.webp?v=23"
 
 COPY_FIXES = {
     "View All Solutions": "View all solutions",
@@ -270,8 +270,8 @@ def ensure_consulting_navigation(soup: BeautifulSoup) -> None:
     for brand in soup.select(".site-header .brand img, .site-footer .brand img"):
         brand["src"] = LOGO_PATH
         brand["alt"] = "Berthoud WiFi"
-        brand["width"] = "768"
-        brand["height"] = "768"
+        brand["width"] = "160"
+        brand["height"] = "160"
 
     nav = soup.select_one(".site-header .nav-links")
     existing_top_level = nav.find(
@@ -379,17 +379,31 @@ def fix_html(path: Path) -> None:
         touch["href"] = "/apple-touch-icon.png?v=17"
         touch["sizes"] = "180x180"
 
-    brand_stylesheets = soup.head.find_all(
-        "link",
-        rel="stylesheet",
-        href=lambda value: value and value.startswith("/assets/css/brand-refresh.css"),
-    )
-    if brand_stylesheets:
-        brand_stylesheets[0]["href"] = BRAND_CSS
-        for duplicate in brand_stylesheets[1:]:
-            duplicate.decompose()
+    relative = path.relative_to(ROOT).as_posix()
+    for stylesheet in list(soup.head.find_all("link", rel="stylesheet", href=True)):
+        href = stylesheet.get("href", "")
+        if href.startswith(
+            (
+                "/assets/css/styles.css",
+                "/assets/css/brand-refresh.css",
+                "/assets/css/site.css",
+            )
+        ):
+            stylesheet.decompose()
+    for inline_css in list(soup.head.select("style[data-site-css]")):
+        inline_css.decompose()
+
+    # The homepage is the primary landing page and PageSpeed target. Inlining its
+    # compact shared CSS removes a full mobile network round trip before FCP/LCP.
+    if relative == "index.html":
+        inline_css = soup.new_tag("style")
+        inline_css["data-site-css"] = "v23"
+        inline_css.string = (ROOT / "assets" / "css" / "site.css").read_text(
+            encoding="utf-8"
+        )
+        soup.head.append(inline_css)
     else:
-        soup.head.append(soup.new_tag("link", rel="stylesheet", href=BRAND_CSS))
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href=SITE_CSS))
 
     site_scripts = soup.find_all(
         "script",
@@ -412,9 +426,10 @@ def fix_html(path: Path) -> None:
             link.decompose()
         elif href == "https://challenges.cloudflare.com" and "preconnect" in link.get("rel", []):
             link.decompose()
+        elif href.startswith("/assets/fonts/") and "preload" in link.get("rel", []):
+            link.decompose()
 
     dedupe_jsonld(soup)
-    relative = path.relative_to(ROOT).as_posix()
 
     if relative == "index.html":
         for preload in list(soup.head.find_all("link", rel="preload")):
@@ -469,6 +484,20 @@ def fix_css() -> None:
     path.write_text(text.rstrip() + "\n" + CSS_OVERRIDES.lstrip(), encoding="utf-8")
 
 
+def write_site_css() -> None:
+    css_root = ROOT / "assets" / "css"
+    combined = "\n".join(
+        (css_root / name).read_text(encoding="utf-8")
+        for name in ("styles.css", "brand-refresh.css")
+    )
+    combined = re.sub(
+        r'https://images\.unsplash\.com/photo-1497366754035-f200968a6e72[^\")]+',
+        "/assets/images/hero-office-v22-1600.webp",
+        combined,
+    )
+    (css_root / "site.css").write_text(combined.rstrip() + "\n", encoding="utf-8")
+
+
 def fix_headers() -> None:
     path = ROOT / "_headers"
     if not path.exists():
@@ -497,6 +526,7 @@ def fix_headers() -> None:
 
 def main() -> None:
     fix_css()
+    write_site_css()
     fix_headers()
     for html in ROOT.rglob("*.html"):
         parts = html.relative_to(ROOT).parts

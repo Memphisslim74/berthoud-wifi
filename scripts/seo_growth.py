@@ -790,9 +790,6 @@ def ensure_security_headers() -> None:
         "frame-src https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; "
         "form-action 'self' mailto:;\n"
         "\n"
-        "/\n"
-        "  Link: </assets/css/site.css?v=22>; rel=preload; as=style\n"
-        "\n"
         "/robots.txt\n"
         "  Cache-Control: public, max-age=3600\n"
         "  Content-Type: text/plain; charset=utf-8\n"
@@ -805,6 +802,9 @@ def ensure_security_headers() -> None:
         "  Cache-Control: public, max-age=31536000, immutable\n"
         "\n"
         "/assets/images/hero-office-v22-*\n"
+        "  Cache-Control: public, max-age=31536000, immutable\n"
+        "\n"
+        "/assets/images/berthoud-wifi-logo-160.webp\n"
         "  Cache-Control: public, max-age=31536000, immutable\n",
         encoding="utf-8",
     )

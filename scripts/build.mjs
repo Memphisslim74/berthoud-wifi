@@ -3,7 +3,7 @@ import path from 'path';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
-const assetVersion = 22;
+const assetVersion = 23;
 
 if (fs.existsSync(dist)) fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
@@ -14,7 +14,8 @@ for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
   fs.cpSync(path.join(root, entry.name), path.join(dist, entry.name), { recursive: true });
 }
 
-// Ship one render-blocking stylesheet instead of the two historical layers.
+// Ship one shared stylesheet. The source homepage inlines this same file so its
+// first paint does not wait for a second mobile network round trip.
 const cssDirectory = path.join(dist, 'assets', 'css');
 let combinedCss = [
   fs.readFileSync(path.join(root, 'assets', 'css', 'styles.css'), 'utf8'),
