@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 NEWS_INDEX = ROOT / "news" / "index.html"
@@ -21,15 +22,18 @@ if f'data-seo-post="{SLUG}"' not in index:
 
 sitemap = SITEMAP.read_text(encoding="utf-8")
 url = f"https://berthoudwifi.com/news/{SLUG}"
-if url not in sitemap:
-    entry = f'  <url><loc>{url}</loc><lastmod>2026-09-08</lastmod></url>\n'
+entry = f'  <url><loc>{url}</loc><lastmod>2026-09-08</lastmod></url>'
+pattern = rf'  <url><loc>{re.escape(url)}</loc><lastmod>[^<]+</lastmod></url>'
+if re.search(pattern, sitemap):
+    sitemap = re.sub(pattern, entry, sitemap)
+else:
     marker = '  <url><loc>https://berthoudwifi.com/news/security-camera-installation-cost-northern-colorado</loc>'
     pos = sitemap.find(marker)
     if pos >= 0:
         line_end = sitemap.find("\n", pos)
-        sitemap = sitemap[:line_end + 1] + entry + sitemap[line_end + 1:]
+        sitemap = sitemap[:line_end + 1] + entry + "\n" + sitemap[line_end + 1:]
     else:
-        sitemap = sitemap.replace("</urlset>", entry + "</urlset>")
-    SITEMAP.write_text(sitemap, encoding="utf-8")
+        sitemap = sitemap.replace("</urlset>", entry + "\n</urlset>")
+SITEMAP.write_text(sitemap, encoding="utf-8")
 
 print("UniFi camera article references are present in news index and sitemap")
