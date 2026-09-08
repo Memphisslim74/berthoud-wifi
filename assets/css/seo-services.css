@@ -1,0 +1,151 @@
+/* SEO services experience and homepage companion */
+.seo-hero{
+  padding:72px 0 64px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 88% 10%,rgba(25,88,196,.08),transparent 28rem),
+    linear-gradient(180deg,#fff 0%,#f7f9fc 100%);
+  border-bottom:1px solid var(--border);
+}
+.seo-hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);
+  gap:58px;
+  align-items:center;
+}
+.seo-hero h1{font-size:clamp(2.75rem,5.2vw,4.9rem);max-width:780px;margin:12px 0 18px}
+.seo-hero .lead{font-size:1.08rem;max-width:720px}
+.seo-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.seo-trust span{padding:8px 11px;border:1px solid var(--border);border-radius:5px;background:#fff;color:var(--body-text);font-size:.84rem;font-weight:600}
+
+.seo-tour-wrap{position:relative;min-width:0}
+.seo-tour-label{display:block;margin:0 0 13px;text-align:center;color:#667386;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.seo-tour{position:relative;min-height:560px;isolation:isolate}
+.seo-tour-stage{position:relative;height:500px;margin:0 48px}
+.seo-tour-card{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid #dfe4eb;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 22px 48px rgba(22,35,59,.13);
+  transform-origin:center bottom;
+  transition:transform .42s ease,opacity .3s ease,filter .3s ease;
+}
+.seo-tour-card[aria-hidden="true"]{pointer-events:none}
+.seo-tour-card.is-active{z-index:7;transform:translate3d(0,0,0) scale(1);opacity:1;filter:none}
+.seo-tour-card.is-next-1{z-index:6;transform:translate3d(36px,18px,0) scale(.96);opacity:.72;filter:saturate(.75)}
+.seo-tour-card.is-next-2{z-index:5;transform:translate3d(68px,34px,0) scale(.92);opacity:.42;filter:saturate(.6)}
+.seo-tour-card.is-prev{z-index:3;transform:translate3d(-22px,12px,0) scale(.95);opacity:0;filter:saturate(.5)}
+.seo-tour-card.is-hidden{z-index:1;transform:translate3d(86px,42px,0) scale(.9);opacity:0;filter:saturate(.4)}
+.seo-screen-head{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:18px 20px;border-bottom:1px solid #e8ebf0;background:#fbfcfe}
+.seo-screen-kicker{display:block;color:var(--accent-blue);font-size:.7rem;font-weight:750;text-transform:uppercase;letter-spacing:.08em}
+.seo-screen-head strong{display:block;color:var(--ink);font-size:1rem;margin-top:2px}
+.seo-screen-step{flex:0 0 auto;padding:6px 8px;border-radius:5px;background:#eef4ff;color:var(--accent-blue);font-size:.72rem;font-weight:700}
+.seo-screen-body{flex:1;padding:20px;background:linear-gradient(180deg,#fff,#fbfcfe)}
+.seo-screen-copy{margin:0 0 18px;color:#647184;font-size:.88rem;line-height:1.55}
+.seo-metric-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.seo-metric{padding:13px;border:1px solid #e5e9ef;border-radius:8px;background:#fff}
+.seo-metric span{display:block;color:#748094;font-size:.68rem;font-weight:650;text-transform:uppercase;letter-spacing:.04em}
+.seo-metric strong{display:block;margin-top:5px;color:var(--ink);font-size:1.18rem}
+.seo-metric em{display:block;margin-top:2px;color:#2b7a4b;font-size:.68rem;font-style:normal;font-weight:700}
+.seo-panel{border:1px solid #e5e9ef;border-radius:9px;background:#fff;padding:14px;margin-top:12px}
+.seo-panel-title{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px;color:#667386;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.seo-chart{height:110px;display:flex;align-items:flex-end;gap:7px;padding:8px 2px 0;border-bottom:1px solid #e8ebf0;background:linear-gradient(180deg,rgba(25,88,196,.025),transparent)}
+.seo-chart i{display:block;flex:1;min-width:8px;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#4d84df,#1958c4)}
+.seo-search-row,.seo-audit-row,.seo-content-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #eef0f4}
+.seo-search-row:last-child,.seo-audit-row:last-child,.seo-content-row:last-child{border-bottom:0}
+.seo-search-row strong,.seo-audit-row strong,.seo-content-row strong{font-size:.83rem;color:var(--ink)}
+.seo-search-row span,.seo-audit-row span,.seo-content-row span{display:block;color:#748094;font-size:.7rem;margin-top:2px}
+.seo-rank{min-width:44px;text-align:center;padding:6px 7px;border-radius:5px;background:#eef4ff;color:#1958c4;font-size:.75rem;font-weight:750}
+.seo-status{display:inline-flex!important;width:max-content;align-items:center;gap:5px;margin:0!important;padding:5px 7px;border-radius:5px;background:#edf8f1;color:#347454!important;font-size:.7rem!important;font-weight:700}
+.seo-status.warn{background:#fff5e8;color:#946125!important}
+.seo-locations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
+.seo-location{padding:10px 11px;border:1px solid #e5e9ef;border-radius:7px;background:#fff}
+.seo-location strong{display:block;font-size:.8rem;color:var(--ink)}
+.seo-location span{color:#748094;font-size:.7rem}
+.seo-progress{height:7px;margin-top:8px;overflow:hidden;border-radius:99px;background:#edf0f4}
+.seo-progress i{display:block;height:100%;border-radius:99px;background:#1958c4}
+.seo-tour-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:18px}
+.seo-tour-btn{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--border);border-radius:50%;background:#fff;color:var(--ink);font-size:1.15rem;cursor:pointer;box-shadow:0 7px 18px rgba(22,35,59,.08)}
+.seo-tour-btn:hover{border-color:#b8c3d2;color:var(--accent-blue)}
+.seo-tour-btn:focus-visible{outline:3px solid rgba(25,88,196,.22);outline-offset:2px}
+.seo-tour-dots{display:flex;gap:6px}
+.seo-tour-dot{width:7px;height:7px;border:0;border-radius:50%;background:#cbd2dc;padding:0;cursor:pointer}
+.seo-tour-dot.is-active{background:var(--accent-blue);transform:scale(1.2)}
+.seo-tour-status{min-width:86px;text-align:center;color:#718094;font-size:.78rem}
+
+.seo-value-grid,.seo-service-grid,.seo-proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.seo-value,.seo-service,.seo-proof{padding:24px;background:#fff;border:1px solid var(--border);border-radius:10px}
+.seo-value strong{display:block;color:var(--ink);font-size:1.05rem;margin-bottom:8px}
+.seo-service h3,.seo-proof h3{margin-top:0}
+.seo-service p,.seo-value p,.seo-proof p{margin-bottom:0}
+.seo-process-list{display:grid;gap:0;counter-reset:seo-step}
+.seo-process-item{display:grid;grid-template-columns:54px minmax(0,1fr);gap:18px;padding:22px 0;border-bottom:1px solid var(--border);counter-increment:seo-step}
+.seo-process-item:last-child{border-bottom:0}
+.seo-process-item::before{content:counter(seo-step);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#eef4ff;color:var(--accent-blue);font-weight:750}
+.seo-process-item h3{margin:0 0 7px}
+.seo-process-item p{margin:0}
+.seo-scope-note{padding:22px;border-left:4px solid var(--accent-blue);background:var(--bg-tint);border-radius:0 10px 10px 0}
+.seo-scope-note p:last-child{margin-bottom:0}
+.seo-area-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.seo-area-links span{padding:8px 11px;border:1px solid var(--border);border-radius:5px;background:#fff;color:var(--body-text);font-size:.84rem;font-weight:600}
+
+/* Homepage companion loaded by site.js only on the homepage. */
+.home-hero.has-seo-companion .container{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,390px);gap:46px;align-items:center}
+.home-hero.has-seo-companion .home-hero-copy{max-width:650px}
+.home-hero.has-seo-companion .home-hero h1{font-size:clamp(2.65rem,5vw,4.65rem)}
+.home-seo-companion{position:relative;align-self:center;padding:16px 0}
+.home-seo-companion .seo-tour-label{text-align:left;margin-left:4px;color:#58677b}
+.home-seo-companion .seo-tour{min-height:430px}
+.home-seo-companion .seo-tour-stage{height:365px;margin:0 34px 0 0}
+.home-seo-companion .seo-tour-card.is-next-1{transform:translate3d(24px,14px,0) scale(.965)}
+.home-seo-companion .seo-tour-card.is-next-2{transform:translate3d(44px,27px,0) scale(.93)}
+.home-seo-companion .seo-screen-head{padding:15px 16px}
+.home-seo-companion .seo-screen-body{padding:16px}
+.home-seo-companion .seo-screen-copy{font-size:.8rem;margin-bottom:12px}
+.home-seo-companion .seo-metric-grid{gap:7px}
+.home-seo-companion .seo-metric{padding:9px}
+.home-seo-companion .seo-metric strong{font-size:1rem}
+.home-seo-companion .seo-chart{height:76px}
+.home-seo-companion .seo-tour-controls{justify-content:flex-start;margin-top:12px}
+.home-seo-companion-cta{display:inline-flex;margin-top:10px;color:var(--accent-clay);font-weight:650;text-decoration:none}
+.home-seo-companion-cta:hover{color:#934521}
+.home-seo-pill{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 10px;border:1px solid rgba(25,88,196,.18);border-radius:5px;background:rgba(255,255,255,.94);color:#31465e;font-size:.82rem;font-weight:650;text-decoration:none}
+.home-seo-pill::before{content:"↗";color:var(--accent-blue);font-weight:800}
+.home-seo-pill:hover{border-color:rgba(25,88,196,.35);color:var(--accent-blue)}
+
+@media(max-width:1040px){
+  .seo-hero-grid{grid-template-columns:1fr;gap:38px}
+  .seo-tour-wrap{max-width:680px;width:100%;margin:auto}
+  .home-hero.has-seo-companion .container{grid-template-columns:1fr}
+  .home-hero.has-seo-companion .home-hero-copy{max-width:720px}
+  .home-seo-companion{max-width:580px;width:100%;padding-top:0}
+  .home-seo-companion .seo-tour-stage{margin-right:42px}
+}
+@media(max-width:780px){
+  .seo-value-grid,.seo-service-grid,.seo-proof-grid{grid-template-columns:1fr}
+  .seo-tour{min-height:520px}
+  .seo-tour-stage{height:455px;margin:0 34px 0 0}
+  .seo-tour-card.is-next-1{transform:translate3d(22px,14px,0) scale(.97)}
+  .seo-tour-card.is-next-2{transform:translate3d(38px,26px,0) scale(.94)}
+  .seo-metric-grid{grid-template-columns:1fr 1fr}
+  .seo-metric-grid .seo-metric:last-child{grid-column:1/-1}
+}
+@media(max-width:560px){
+  .seo-hero{padding:48px 0 42px}
+  .seo-hero h1{font-size:clamp(2.35rem,11vw,3.35rem)}
+  .seo-tour{min-height:535px}
+  .seo-tour-stage{height:470px;margin:0 24px 0 0}
+  .seo-screen-head{padding:14px}
+  .seo-screen-body{padding:14px}
+  .seo-metric-grid{grid-template-columns:1fr 1fr}
+  .seo-locations{grid-template-columns:1fr}
+  .home-seo-companion .seo-tour{min-height:410px}
+  .home-seo-companion .seo-tour-stage{height:350px;margin-right:22px}
+}
+@media(prefers-reduced-motion:reduce){.seo-tour-card,.seo-tour-dot{transition:none!important}}
