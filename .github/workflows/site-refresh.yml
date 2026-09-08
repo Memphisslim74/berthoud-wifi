@@ -8,6 +8,7 @@ on:
       - "scripts/site_refresh_fix.py"
       - "scripts/seo_growth.py"
       - "scripts/high_intent_growth.py"
+      - "scripts/publish_unifi_camera_blog.py"
       - "cybersecurity-consulting/**"
       - "assets/images/berthoud-wifi-logo.png"
       - "assets/images/berthoud-wifi-logo.webp"
@@ -44,6 +45,7 @@ jobs:
           python scripts/high_intent_growth.py
           python scripts/seo_growth.py
           python scripts/site_refresh_fix.py
+          python scripts/publish_unifi_camera_blog.py
 
       - name: Commit generated site updates
         run: |
